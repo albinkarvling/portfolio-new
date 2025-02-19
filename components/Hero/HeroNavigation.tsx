@@ -104,7 +104,7 @@ export function HeroNavigation({className}: {className?: string}) {
             ref={containerRef}
         >
             <ul
-                className="w-full h-full grid sm:grid-cols-2 lg:grid-cols-[unset] lg:grid-rows-4 bg-background-primary"
+                className="w-full h-full grid lg:grid-cols-[unset] lg:grid-rows-4 bg-background-primary"
                 ref={listRef}
             >
                 {NAVBAR_TABS.map((tab, index) => (
@@ -117,7 +117,7 @@ export function HeroNavigation({className}: {className?: string}) {
                         <button
                             className={twMerge(
                                 "relative z-10 w-full h-full p-6 pr-8 pl-12 uppercase font-bold text-3xl lg:text-5xl whitespace-nowrap flex items-center justify-center lg:justify-end overflow-hidden",
-                                "[--extra-width:24px] after:z-[-1] after:absolute group-odd:after:right-[calc(100%+var(--extra-width))] after:-right-[calc(100%+var(--extra-width))] after:h-full after:w-[calc(100%+var(--extra-width))] after:transition-[right] after:duration-300 after:ease-in-out after:shadow-lg after:border-y-2 after:border-y-background-tertiary/40 after:bg-gradient-to-l after:bg-background-secondary/30",
+                                "[--extra-width:24px] after:z-[-1] after:absolute group-odd:after:right-[calc(100%+var(--extra-width))] lg:group-odd:after:-right-[calc(100%+var(--extra-width))] after:-right-[calc(100%+var(--extra-width))] after:h-full after:w-[calc(100%+var(--extra-width))] after:transition-[right] after:duration-300 after:ease-in-out after:shadow-lg after:border-y-2 after:border-y-background-tertiary/40 after:bg-gradient-to-l after:bg-background-secondary/30",
                                 "border-[1px] border-background-tertiary lg:border-none",
                                 "group-odd:hover:after:right-0 hover:after:right-0",
                             )}

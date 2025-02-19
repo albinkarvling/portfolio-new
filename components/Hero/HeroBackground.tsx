@@ -3,8 +3,8 @@ import React, {useEffect, useRef, forwardRef, useCallback} from "react";
 import {twMerge} from "tailwind-merge";
 
 const TILE_SIZE = 100;
-const BASE_RADIUS = 200;
-const HOVER_RADIUS = 400;
+const BASE_RADIUS = 150;
+const HOVER_RADIUS = 300;
 const TRANSITION_DURATION = 200; // Transition duration in ms
 const LERP_SPEED = 0.05; // Adjust for more or less lag (0.05 = more lag, 0.2 = less lag)
 const GRID_FADE_START = 60; // The percentage at which the grid starts to fade out
@@ -59,7 +59,7 @@ const HeroGrid = forwardRef(({spotlight, containerRef}: HeroGridProps, ref) => {
                             <div
                                 key={index}
                                 className={twMerge(
-                                    "flex-1 aspect-square border-l-[1px] border-b-[1px] first-of-type:border-l-0 border-background-tertiary",
+                                    "flex-1 aspect-square border-l-[1px] border-b-[1px] first-of-type:border-l-0 border-background-tertiary/70",
                                     spotlight && "border-text-primary",
                                 )}
                                 style={{width: TILE_SIZE}}

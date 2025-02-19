@@ -20,7 +20,7 @@ export function Hero() {
 
             <div className="h-full pt-24 lg:pt-0 flex flex-col lg:justify-center">
                 <div className="w-main max-w-main mx-auto flex flex-col items-center lg:items-start">
-                    <div className="w-[480px] max-w-full text-center lg:text-left grid place-items-center lg:place-items-start">
+                    <div className="lg:-mt-6 w-[480px] max-w-full text-center lg:text-left grid place-items-center lg:place-items-start">
                         <HeroTypingHeader />
                         <p
                             className="mt-2 text-4xl text-text-secondary"

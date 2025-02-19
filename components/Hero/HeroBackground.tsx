@@ -38,9 +38,13 @@ const HeroGrid = forwardRef(({spotlight, containerRef}: HeroGridProps, ref) => {
                 WebkitMaskImage: `linear-gradient(to bottom, rgba(0, 0, 0, 1) ${GRID_FADE_START}%, rgba(0, 0, 0, 0) 100%)`,
             }}
         >
-            <div ref={ref as React.RefObject<HTMLDivElement>}>
+            <div data-row-count={rowCount} ref={ref as React.RefObject<HTMLDivElement>}>
                 {Array.from({length: rowCount}).map((_, index) => (
-                    <div className="flex gap-[1px]" key={index}>
+                    <div
+                        className="flex gap-[1px]"
+                        id={`background-row-${index}`}
+                        key={index}
+                    >
                         {Array.from({length: columnCount}).map((_, index) => (
                             <div
                                 key={index}
@@ -48,7 +52,7 @@ const HeroGrid = forwardRef(({spotlight, containerRef}: HeroGridProps, ref) => {
                                     "flex-1 aspect-square border-l-[1px] border-b-[1px] first-of-type:border-l-0 border-background-tertiary",
                                     spotlight && "border-text-primary",
                                 )}
-                                style={{minWidth: TILE_SIZE}}
+                                style={{width: TILE_SIZE}}
                             />
                         ))}
                     </div>
@@ -158,7 +162,10 @@ export function HeroBackground() {
     }, [startAnimation]);
 
     return (
-        <div className="absolute w-full h-full pointer-events-none" ref={containerRef}>
+        <div
+            className="-z-10 absolute w-full h-full pointer-events-none"
+            ref={containerRef}
+        >
             <HeroGrid containerRef={containerRef} />
             <HeroGrid containerRef={containerRef} ref={maskRef} spotlight />
         </div>

@@ -5,3 +5,26 @@
 body {
     @apply bg-background-primary text-text-primary;
 }
+
+[data-tooltip] {
+    position: relative;
+}
+[data-tooltip]::after {
+    @apply bg-background-secondary;
+    content: attr(data-tooltip);
+    position: absolute;
+    left: 50%;
+    transform: scale(.94) translateX(-50%);
+    bottom: calc(100% + 8px);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-weight: 500;
+    pointer-events: none;
+    opacity: 0;
+    transition-property: opacity, transform;
+    transition-duration: 200ms;
+}
+[data-tooltip]:hover::after {
+    transform: scale(1) translateX(-50%);
+    opacity: 1;
+}

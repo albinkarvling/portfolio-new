@@ -74,7 +74,7 @@ export function HeroBackground() {
 
     const updateMask = (radius: number, x: number, y: number) => {
         if (maskRef.current) {
-            maskRef.current.style.maskImage = `radial-gradient(circle ${radius}px at ${x}px ${y}px, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 100%)`;
+            maskRef.current.style.maskImage = `radial-gradient(circle ${radius}px at ${x}px ${y}px, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.4) 30%, rgba(255, 255, 255, 0) 100%)`;
             maskRef.current.style.webkitMaskImage = maskRef.current.style.maskImage;
         }
     };

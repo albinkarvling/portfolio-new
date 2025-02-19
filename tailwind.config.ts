@@ -29,9 +29,14 @@ export default {
                     "20%": {transform: "translateY(0)"},
                     "100%": {transform: "translateY(0)"},
                 },
+                "header-pulse": {
+                    "0%": {opacity: "0"},
+                    "100%": {opacity: "1"},
+                },
             },
             animation: {
                 "arrow-bounce": "arrow-bounce 4s ease-in-out infinite",
+                "header-pulse": "header-pulse .6s ease-out infinite alternate",
             },
         },
     },

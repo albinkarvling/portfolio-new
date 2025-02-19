@@ -1,6 +1,8 @@
 "use client";
 import {LinkBubble} from "@/assets";
+import useAnimateIntoView, {DEFAULT_INITIAL_STATE} from "@/hooks/useAnimateIntoView";
 import {GitHub, LinkedIn, AlternateEmail} from "@mui/icons-material";
+import {createRef} from "react";
 
 const LINKS = [
     {text: "GitHub", url: "https://github.com/albinkarvling", icon: "github"},
@@ -13,6 +15,12 @@ const LINKS = [
 ];
 
 export function HeroLinks() {
+    const linkRefs = LINKS.map(() => createRef<HTMLLIElement>());
+
+    useAnimateIntoView(linkRefs[0], {delay: 1100});
+    useAnimateIntoView(linkRefs[1], {delay: 1200});
+    useAnimateIntoView(linkRefs[2], {delay: 1250});
+
     const renderIcon = (icon: (typeof LINKS)[number]["icon"]) => {
         switch (icon) {
             case "github":
@@ -25,8 +33,14 @@ export function HeroLinks() {
     };
     return (
         <ul className="mt-8 flex gap-8">
-            {LINKS.map(({text, url, icon}) => (
-                <li className="relative" data-tooltip={text} key={text}>
+            {LINKS.map(({text, url, icon}, index) => (
+                <li
+                    style={DEFAULT_INITIAL_STATE}
+                    className="relative"
+                    data-tooltip={text}
+                    ref={linkRefs[index]}
+                    key={text}
+                >
                     <LinkBubble />
                     <div className="absolute inset-0 -ml-0.5 -mt-1.5">
                         <a

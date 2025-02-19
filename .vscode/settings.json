@@ -1,4 +1,6 @@
 {
+  "css.customData": [".vscode/tailwind.json"],
+
   "[javascript]": {
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"

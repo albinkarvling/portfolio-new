@@ -8,6 +8,8 @@ const HOVER_RADIUS = 400;
 const TRANSITION_DURATION = 200; // Transition duration in ms
 const LERP_SPEED = 0.05; // Adjust for more or less lag (0.05 = more lag, 0.2 = less lag)
 const GRID_FADE_START = 60; // The percentage at which the grid starts to fade out
+const GRID_FADE_END_LARGE = 100;
+const GRID_FADE_END_SMALL = 70;
 
 type HeroGridProps = {
     spotlight?: boolean;
@@ -32,11 +34,19 @@ const HeroGrid = forwardRef(({spotlight, containerRef}: HeroGridProps, ref) => {
 
     return (
         <div
-            className={twMerge("absolute w-full h-full pointer-events-none")}
-            style={{
-                maskImage: `linear-gradient(to bottom, rgba(0, 0, 0, 1) ${GRID_FADE_START}%, rgba(0, 0, 0, 0) 100%)`,
-                WebkitMaskImage: `linear-gradient(to bottom, rgba(0, 0, 0, 1) ${GRID_FADE_START}%, rgba(0, 0, 0, 0) 100%)`,
-            }}
+            className={twMerge(
+                "absolute w-full h-full pointer-events-none",
+                "[--grid-fade-end:var(--grid-fade-end-small)] lg:[--grid-fade-end:var(--grid-fade-end-large)]",
+            )}
+            style={
+                {
+                    maskImage: `linear-gradient(to bottom, rgba(0, 0, 0, 1) var(--grid-fade-start), rgba(0, 0, 0, 0) var(--grid-fade-end))`,
+                    WebkitMaskImage: `linear-gradient(to bottom, rgba(0, 0, 0, 1) var(--grid-fade-start), rgba(0, 0, 0, 0) var(--grid-fade-end))`,
+                    "--grid-fade-start": `${GRID_FADE_START}%`,
+                    "--grid-fade-end-small": `${GRID_FADE_END_SMALL}%`,
+                    "--grid-fade-end-large": `${GRID_FADE_END_LARGE}%`,
+                } as React.CSSProperties
+            }
         >
             <div data-row-count={rowCount} ref={ref as React.RefObject<HTMLDivElement>}>
                 {Array.from({length: rowCount}).map((_, index) => (

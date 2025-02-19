@@ -15,34 +15,36 @@ export function Hero() {
     useAnimateIntoView(textRef, {delay: 1000});
 
     return (
-        <section className="relative w-full h-[95dvh]" id="hero-section">
+        <section className="relative w-full lg:h-[100dvh]" id="hero-section">
             <HeroBackground />
 
-            <div className="h-[calc(100%-30px)] w-main max-w-main mx-auto flex items-center">
-                <div className="w-[480px] max-w-full grid place-items-start">
-                    <HeroTypingHeader />
-                    <p
-                        className="mt-2 text-4xl text-text-secondary"
-                        style={DEFAULT_INITIAL_STATE}
-                        ref={subHeaderRef}
-                    >
-                        I create stuff sometimes.
-                    </p>
-                    <p
-                        className="mt-4 text-lg font-medium text-text-secondary"
-                        style={DEFAULT_INITIAL_STATE}
-                        ref={textRef}
-                    >
-                        I am a full stack developer, with experience in frontend, backend
-                        & cloud technologies.
-                    </p>
+            <div className="h-full pt-24 lg:pt-0 flex flex-col lg:justify-center">
+                <div className="w-main max-w-main mx-auto flex flex-col items-center lg:items-start">
+                    <div className="w-[480px] max-w-full text-center lg:text-left grid place-items-center lg:place-items-start">
+                        <HeroTypingHeader />
+                        <p
+                            className="mt-2 text-4xl text-text-secondary"
+                            style={DEFAULT_INITIAL_STATE}
+                            ref={subHeaderRef}
+                        >
+                            I create stuff sometimes.
+                        </p>
+                        <p
+                            className="mt-4 text-lg font-medium text-text-secondary"
+                            style={DEFAULT_INITIAL_STATE}
+                            ref={textRef}
+                        >
+                            I am a full stack developer, with experience in frontend,
+                            backend & cloud technologies.
+                        </p>
+                    </div>
                     <HeroLinks />
                 </div>
-                <HeroNavigation />
+                <HeroNavigation className="mt-16 lg:mt-0" />
             </div>
 
             <button
-                className="absolute bottom-16 left-2/4 -translate-x-2/4 grid place-items-center gap-1"
+                className="mt-8 lg:mt-0 mx-auto lg:absolute bottom-16 left-2/4 lg:-translate-x-2/4 grid place-items-center gap-1"
                 data-spotlight
             >
                 Read more

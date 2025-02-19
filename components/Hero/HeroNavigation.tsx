@@ -10,6 +10,7 @@ const NAVBAR_TABS = [
     {id: 4, title: "Contact"},
 ];
 
+const BREAKPOINT = 1024;
 const INITIAL_ANIMATE_STATE = {
     opacity: 0,
     transform: "translateX(100%)",
@@ -18,7 +19,7 @@ const END_ANIMATE_STATE = {
     opacity: 1,
     transform: "translateX(0)",
 };
-export function HeroNavigation() {
+export function HeroNavigation({className}: {className?: string}) {
     const containerRef = useRef<HTMLDivElement>(null);
     const listRef = useRef<HTMLUListElement>(null);
     const tabRefs = NAVBAR_TABS.map(() => createRef<HTMLLIElement>());
@@ -33,6 +34,12 @@ export function HeroNavigation() {
             // Reset styles to get the actual width/height
             container.style.width = "";
             container.style.height = "";
+
+            if (window.innerWidth < BREAKPOINT) {
+                container.style.width = "100%";
+                container.style.top = "";
+                return;
+            }
 
             const rowCount = Number(
                 document
@@ -69,39 +76,51 @@ export function HeroNavigation() {
 
     useAnimateIntoView(tabRefs[0], {
         initialState: END_ANIMATE_STATE,
+        threshold: 100,
         delay: 300,
     });
     useAnimateIntoView(tabRefs[1], {
         initialState: INITIAL_ANIMATE_STATE,
+        threshold: 100,
         delay: 500,
     });
     useAnimateIntoView(tabRefs[2], {
         initialState: INITIAL_ANIMATE_STATE,
+        threshold: 100,
         delay: 700,
     });
     useAnimateIntoView(tabRefs[3], {
         initialState: INITIAL_ANIMATE_STATE,
+        threshold: 100,
         delay: 900,
     });
 
     return (
         <nav
-            className="z-10 absolute right-0 flex justify-end items-center overflow-hidden"
+            className={twMerge(
+                "z-10 lg:absolute lg:right-0 flex justify-end items-center overflow-hidden",
+                className,
+            )}
             ref={containerRef}
         >
             <ul
-                className="w-full h-full grid grid-rows-4 bg-background-primary"
+                className="w-full h-full grid sm:grid-cols-2 lg:grid-cols-[unset] lg:grid-rows-4 bg-background-primary"
                 ref={listRef}
             >
                 {NAVBAR_TABS.map((tab, index) => (
-                    <li style={INITIAL_ANIMATE_STATE} ref={tabRefs[index]} key={tab.id}>
+                    <li
+                        className="group"
+                        style={INITIAL_ANIMATE_STATE}
+                        ref={tabRefs[index]}
+                        key={tab.id}
+                    >
                         <button
                             className={twMerge(
-                                "relative z-10 w-full h-full p-6 pr-8 pl-12 uppercase font-bold text-5xl whitespace-nowrap flex items-center justify-end",
-                                "[--extra-width:24px] after:z-[-1] after:absolute after:-right-[calc(100%+var(--extra-width))] after:h-full after:w-[calc(100%+var(--extra-width))] after:transition-[right] after:duration-300 after:ease-in-out after:shadow-lg after:border-y-2 after:border-y-background-tertiary/40 after:bg-gradient-to-l after:bg-background-secondary/30",
-                                "hover:after:right-0",
+                                "relative z-10 w-full h-full p-6 pr-8 pl-12 uppercase font-bold text-3xl lg:text-5xl whitespace-nowrap flex items-center justify-center lg:justify-end overflow-hidden",
+                                "[--extra-width:24px] after:z-[-1] after:absolute group-odd:after:right-[calc(100%+var(--extra-width))] after:-right-[calc(100%+var(--extra-width))] after:h-full after:w-[calc(100%+var(--extra-width))] after:transition-[right] after:duration-300 after:ease-in-out after:shadow-lg after:border-y-2 after:border-y-background-tertiary/40 after:bg-gradient-to-l after:bg-background-secondary/30",
+                                "border-[1px] border-background-tertiary lg:border-none",
+                                "group-odd:hover:after:right-0 hover:after:right-0",
                             )}
-                            style={{}}
                             data-spotlight
                         >
                             {tab.title}

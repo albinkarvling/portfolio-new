@@ -76,7 +76,7 @@ export function HeroNavigation({className}: {className?: string}) {
     }, []);
 
     const {initialState} = useAnimateIntoView(tabRefs[0], {
-        initialState: END_ANIMATE_STATE,
+        initialState: INITIAL_ANIMATE_STATE,
         threshold: 100,
         delay: 300,
     });

@@ -3,8 +3,8 @@ import {useRef, useState} from "react";
 import {twMerge} from "tailwind-merge";
 import {Tooltip} from "../Tooltip";
 import useAnimateIntoView from "@/hooks/useAnimateIntoView";
-import {renderIcon} from "./Projects";
 import {scrollToSection} from "@/utils/scrollToSection";
+import {renderIcon} from "@/utils/renderIcon";
 
 function getDirection(e: React.MouseEvent, element: Element) {
     const rect = element.getBoundingClientRect();
@@ -154,7 +154,7 @@ export function ProjectCard({
                                     target="_blank"
                                     rel="noreferrer"
                                 >
-                                    {renderIcon(link.title)}
+                                    {renderIcon(link.title, "small")}
                                 </a>
                             </Tooltip>
                         </li>

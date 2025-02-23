@@ -1,7 +1,7 @@
 import {Project} from "@/assets/projects";
-import {renderIcon} from "./Projects";
 import {Tooltip} from "../Tooltip";
 import {ProjectPreview} from "./ProjectPreview";
+import {renderIcon} from "@/utils/renderIcon";
 
 export function ProjectListItem({project, index}: {project: Project; index: number}) {
     const isRevered = index % 2 === 0;
@@ -35,7 +35,7 @@ export function ProjectListItem({project, index}: {project: Project; index: numb
                                             className="text-text-secondary flex"
                                             aria-label={`View ${link.title}`}
                                         >
-                                            {renderIcon(link.title)}
+                                            {renderIcon(link.title, "small")}
                                         </a>
                                     </Tooltip>
                                 </li>

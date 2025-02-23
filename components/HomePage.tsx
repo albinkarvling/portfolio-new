@@ -3,6 +3,7 @@ import {About} from "./About";
 import {Projects} from "./Projects";
 import {TechStack} from "./TechStack";
 import {Contact} from "./Contact";
+import {Footer} from "./Footer";
 
 export function HomePage() {
     return (
@@ -12,6 +13,7 @@ export function HomePage() {
             <Projects />
             <TechStack />
             <Contact />
+            <Footer />
         </main>
     );
 }

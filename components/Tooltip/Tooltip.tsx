@@ -1,5 +1,6 @@
 import {useCallback, useEffect, useRef, useState} from "react";
 import {AnimatePresence, motion} from "framer-motion";
+import {twMerge} from "tailwind-merge";
 
 const INITIAL_SCALE = 0.9;
 const INITIAL_POSITION = {opacity: 0, scale: INITIAL_SCALE};
@@ -9,6 +10,7 @@ export function Tooltip({
     children,
     text,
     className,
+    color = "tertiary",
     spaceFromParent = 8,
     duration = 0.2,
 }: {
@@ -17,6 +19,7 @@ export function Tooltip({
     spaceFromParent?: number;
     duration?: number;
     className?: string;
+    color?: "primary" | "secondary" | "tertiary" | "quaternary";
 }) {
     const [isHovering, setIsHovering] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
@@ -78,7 +81,13 @@ export function Tooltip({
                         animate={ANIMATE_POSITION}
                         exit={INITIAL_POSITION}
                         transition={{duration}}
-                        className="fixed z-10 py-2 px-3 bg-background-tertiary text-sm rounded-lg font-semibold pointer-events-none"
+                        className={twMerge(
+                            "fixed z-10 py-2 px-3 text-sm rounded-lg font-semibold pointer-events-none",
+                            color === "primary" && "bg-background-primary",
+                            color === "secondary" && "bg-background-secondary",
+                            color === "tertiary" && "bg-background-tertiary",
+                            color === "quaternary" && "bg-background-quaternary",
+                        )}
                         ref={tooltipRef}
                     >
                         {text}

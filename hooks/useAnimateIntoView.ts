@@ -73,7 +73,10 @@ export default function useAnimateIntoView(
 
                 setTimeout(() => {
                     if (!ref.current) return;
+                    ref.current.style.opacity = "";
                     ref.current.style.transform = "";
+                    ref.current.style.transition = "";
+                    ref.current.style.transitionDelay = "";
                 }, duration + delay);
             }
         };

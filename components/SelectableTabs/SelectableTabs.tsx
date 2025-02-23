@@ -1,3 +1,4 @@
+import useAnimateIntoView from "@/hooks/useAnimateIntoView";
 import {createRef, useCallback, useEffect, useRef} from "react";
 import {twMerge} from "tailwind-merge";
 
@@ -12,6 +13,7 @@ type Props<T> = {
     tabs: SelectableTab<T>[];
     onSelect: (id: T) => void;
     className?: string;
+    parentRef?: React.RefObject<HTMLElement | null>;
 };
 
 export function SelectableTabs<T extends string>({
@@ -19,10 +21,28 @@ export function SelectableTabs<T extends string>({
     selectedTab,
     onSelect,
     className,
+    parentRef,
 }: Props<T>) {
     const containerRef = useRef<HTMLUListElement>(null);
     const selectedIndicatorRef = useRef<HTMLSpanElement>(null);
     const tabRefs = tabs.map(() => createRef<HTMLLIElement>());
+
+    const {initialState, isVisible} = useAnimateIntoView(tabRefs[0], {
+        siblingRef: parentRef,
+        delay: 100,
+    });
+    useAnimateIntoView(tabRefs[1], {
+        siblingRef: parentRef,
+        delay: 200,
+    });
+    useAnimateIntoView(tabRefs[2], {
+        siblingRef: parentRef,
+        delay: 250,
+    });
+    useAnimateIntoView(selectedIndicatorRef, {
+        siblingRef: parentRef,
+        delay: 300,
+    });
 
     const getActiveTabIndex = useCallback(
         () => tabs.findIndex((tab) => tab.id === selectedTab) || 0,
@@ -59,11 +79,15 @@ export function SelectableTabs<T extends string>({
         <div className={twMerge("relative", className)}>
             <ul
                 role="tablist"
-                className="flex gap-5 border-b-[1px] border-b-background-secondary"
+                className={twMerge(
+                    "relative flex gap-5",
+                    "after:absolute after:bottom-0 after:h-[1px] after:bg-background-secondary after:left-0 after:transition-[width] after:duration-1000 after:delay-500",
+                    isVisible ? "after:w-full" : "after:w-0",
+                )}
                 ref={containerRef}
             >
                 {tabs.map((tab, index) => (
-                    <li ref={tabRefs[index]} key={tab.id}>
+                    <li style={initialState} ref={tabRefs[index]} key={tab.id}>
                         <button
                             role="tab"
                             aria-controls={tab.ariaControls}
@@ -79,6 +103,7 @@ export function SelectableTabs<T extends string>({
                 ))}
             </ul>
             <span
+                style={initialState}
                 className="absolute h-[1px] bottom-0 bg-text-primary transition-[left,width] duration-300 ease-in-out"
                 ref={selectedIndicatorRef}
             />

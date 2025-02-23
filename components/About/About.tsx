@@ -1,7 +1,9 @@
 "use client";
-import {useState} from "react";
+import {useRef, useState} from "react";
 import {SelectableTabs} from "../SelectableTabs";
 import {type SelectableTab} from "../SelectableTabs/SelectableTabs";
+import useAnimateIntoView from "@/hooks/useAnimateIntoView";
+import {AboutActivePanel} from "./AboutActivePanel";
 
 type AboutTabId = "about-me" | "how-it-started" | "my-mindset";
 const ABOUT_TABS: SelectableTab<AboutTabId>[] = [
@@ -54,18 +56,32 @@ const ABOUT_PANEL_CONTENTS = {
         ],
     },
 } as const;
+export type AboutPanel = (typeof ABOUT_PANEL_CONTENTS)[AboutTabId];
 
 export function About() {
     const [currentTab, setCurrentTab] = useState(ABOUT_TABS[0].id);
 
+    const shouldIgnoreDelay = useRef(false);
+    const headerRef = useRef<HTMLHeadingElement>(null);
+
+    const {initialState} = useAnimateIntoView(headerRef);
+
+    const handleTabChange = (tab: AboutTabId) => {
+        setCurrentTab(tab);
+        shouldIgnoreDelay.current = true;
+    };
+
     return (
         <section className="py-28 w-main max-w-main mx-auto" id="about-section">
-            <h2 className="text-5xl font-semibold">About my journey</h2>
+            <h2 style={initialState} className="text-5xl font-semibold" ref={headerRef}>
+                About my journey
+            </h2>
 
             <SelectableTabs
+                parentRef={headerRef}
                 tabs={ABOUT_TABS}
                 selectedTab={currentTab}
-                onSelect={setCurrentTab}
+                onSelect={handleTabChange}
                 className="mt-8"
             />
 
@@ -80,19 +96,11 @@ export function About() {
                         key={tab.id}
                     >
                         {isActivePanel && (
-                            <>
-                                <span>{ABOUT_PANEL_CONTENTS[tab.id].text}</span>
-                                <ul className="mt-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
-                                    {tabPanel.bulletPoints.map((bulletPoint, index) => (
-                                        <li
-                                            className="flex-1 py-3 px-5 font-medium text-sm bg-background-secondary/60 rounded-md"
-                                            key={index}
-                                        >
-                                            {bulletPoint}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </>
+                            <AboutActivePanel
+                                ignoreDelay={shouldIgnoreDelay.current}
+                                tabPanel={tabPanel}
+                                siblingRef={headerRef}
+                            />
                         )}
                     </div>
                 );

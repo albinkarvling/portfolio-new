@@ -1,10 +1,13 @@
 "use client";
-import {useState} from "react";
+import {useRef, useState} from "react";
 import {Input} from "../Input";
 import {Button} from "../Button";
+import {RevealElement} from "../RevealElement/RevealElement";
+import useAnimateIntoView from "@/hooks/useAnimateIntoView";
 
 const EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 export function Contact() {
+    const containerRef = useRef<HTMLDivElement>(null);
     const [info, setInfo] = useState({
         name: "",
         email: "",
@@ -53,60 +56,72 @@ export function Contact() {
         setInfo({name: "", email: "", message: ""});
     };
 
+    const {isVisible} = useAnimateIntoView(containerRef, {
+        initialState: {opacity: 1, transform: "translate(0,0"},
+    });
+
     return (
         <section
-            className="py-20 bg-background-secondary border-t-[1px] border-t-background-tertiary"
+            className="bg-background-secondary border-t-[1px] border-t-background-tertiary"
             id="contact-section"
+            ref={containerRef}
         >
-            <h2 className="text-center text-5xl font-semibold">
-                Let&apos;s get in touch.
-            </h2>
-            <form
-                className="mt-8 w-[550px] max-w-main mx-auto grid gap-2"
-                onSubmit={handleSubmit}
-                noValidate
+            <RevealElement
+                direction="top"
+                className="py-20 w-full"
+                isVisible={isVisible}
+                color="quaternary"
             >
-                {error && (
-                    <span
-                        className="p-4 border-[1px] border-error/20 bg-error/10 rounded-md"
-                        role="alert"
-                    >
-                        {error}
-                    </span>
-                )}
-                {success && (
-                    <span
-                        className="p-4 border-[1px] border-success/20 bg-success/10 rounded-md"
-                        role="alert"
-                    >
-                        {success}
-                    </span>
-                )}
-                <Input
-                    placeholder="Name"
-                    label="Name"
-                    onChange={updateProperty("name")}
-                />
-                <Input
-                    placeholder="Email"
-                    label="Email"
-                    onChange={updateProperty("email")}
-                    type="email"
-                />
-                <Input
-                    placeholder="Message"
-                    label="Message"
-                    onChange={updateProperty("message")}
-                    textArea
-                />
-                <Button
-                    disabled={loading}
-                    className="mt-2 justify-self-center"
-                    color="quaternary"
+                <h2 className="text-center text-4xl font-semibold">
+                    Let&apos;s get in touch.
+                </h2>
+                <form
+                    className="mt-8 w-[550px] max-w-main mx-auto grid gap-2"
+                    onSubmit={handleSubmit}
+                    noValidate
                 >
-                    {loading ? "Sending..." : "Start conversation"}
-                </Button>
-            </form>
+                    {error && (
+                        <span
+                            className="p-4 border-[1px] border-error/20 bg-error/10 rounded-md"
+                            role="alert"
+                        >
+                            {error}
+                        </span>
+                    )}
+                    {success && (
+                        <span
+                            className="p-4 border-[1px] border-success/20 bg-success/10 rounded-md"
+                            role="alert"
+                        >
+                            {success}
+                        </span>
+                    )}
+                    <Input
+                        placeholder="Name"
+                        label="Name"
+                        onChange={updateProperty("name")}
+                    />
+                    <Input
+                        placeholder="Email"
+                        label="Email"
+                        onChange={updateProperty("email")}
+                        type="email"
+                    />
+                    <Input
+                        placeholder="Message"
+                        label="Message"
+                        onChange={updateProperty("message")}
+                        textArea
+                    />
+                    <Button
+                        disabled={loading}
+                        className="mt-2 justify-self-center"
+                        color="quaternary"
+                    >
+                        {loading ? "Sending..." : "Start conversation"}
+                    </Button>
+                </form>
+            </RevealElement>
         </section>
     );
 }

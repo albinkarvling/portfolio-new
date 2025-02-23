@@ -1,15 +1,19 @@
 import {useEffect, useState} from "react";
 import {twMerge} from "tailwind-merge";
 
-const ANIMATION_DURATION = 1500;
+const ANIMATION_DURATION = 1700;
 export function RevealElement({
     children,
     isVisible,
     className,
+    color = "secondary",
+    direction = "left",
 }: {
     children: React.ReactNode;
     isVisible?: boolean;
     className?: string;
+    direction?: "left" | "top";
+    color?: "primary" | "secondary" | "tertiary" | "quaternary";
 }) {
     const [childrenAreVisible, setChildrenAreVisible] = useState(false);
 
@@ -29,9 +33,15 @@ export function RevealElement({
             }
             className={twMerge(
                 "relative w-fit overflow-hidden",
-                "after:absolute after:inset-0 after:w-[200%] after:h-full after:bg-background-secondary after:transition-[left] after:duration-[--transition-duration]",
-                !isVisible && "after:-left-[200%]",
-                isVisible && "after:left-full",
+                "after:absolute after:inset-0 after:w-[200%] after:h-[200%] after:transition-[left,top] after:duration-[--transition-duration]",
+                color === "primary" && "after:bg-background-primary",
+                color === "secondary" && "after:bg-background-secondary",
+                color === "tertiary" && "after:bg-background-tertiary",
+                color === "quaternary" && "after:bg-background-quaternary",
+                !isVisible && direction === "left" && "after:-left-[200%]",
+                isVisible && direction === "left" && "after:left-full",
+                !isVisible && direction === "top" && "after:-top-[200%]",
+                isVisible && direction === "top" && "after:top-full",
                 className,
             )}
         >

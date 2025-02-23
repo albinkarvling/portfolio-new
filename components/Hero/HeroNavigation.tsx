@@ -16,10 +16,6 @@ const INITIAL_ANIMATE_STATE = {
     opacity: 0,
     transform: "translateX(100%)",
 };
-const END_ANIMATE_STATE = {
-    opacity: 1,
-    transform: "translateX(0)",
-};
 export function HeroNavigation({className}: {className?: string}) {
     const containerRef = useRef<HTMLDivElement>(null);
     const listRef = useRef<HTMLUListElement>(null);

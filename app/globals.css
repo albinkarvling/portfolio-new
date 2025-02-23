@@ -33,6 +33,10 @@ body {
     opacity: 0;
     transition-property: opacity, transform;
     transition-duration: 200ms;
+    white-space: nowrap;
+}
+[data-tooltip-hidden="true"]::after {
+    display: none;
 }
 [data-tooltip]:hover::after {
     transform: scale(1) translateX(-50%);

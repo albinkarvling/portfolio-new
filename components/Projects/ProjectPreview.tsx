@@ -4,6 +4,7 @@ import {AnimatePresence, motion} from "framer-motion";
 import Image from "next/image";
 import {useRef, useState} from "react";
 import {RevealElement} from "../RevealElement/RevealElement";
+import {useScreenSize} from "@/hooks/useScreenSize";
 
 const ANIMATION_DURATION = 700;
 export function ProjectPreview({
@@ -13,10 +14,13 @@ export function ProjectPreview({
     project: Project;
     isVisible: boolean;
 }) {
+    const screenSize = useScreenSize();
     const [previewVisbile, setPreviewVisible] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
     const initailDimensions = useRef({left: 0, top: 0, width: 0, height: 0});
+
+    const isSmallScreen = ["sm", "xs"].includes(screenSize);
 
     const showPreview = () => {
         if (!containerRef.current || !contentRef.current) return;
@@ -41,8 +45,8 @@ export function ProjectPreview({
             content.style.top = `50%`;
             content.style.left = `50%`;
             content.style.transform = `translate(-50%, -50%)`;
-            content.style.width = `80vw`;
-            content.style.height = `80vh`;
+            content.style.width = isSmallScreen ? "100vw" : "80vw";
+            content.style.height = isSmallScreen ? "100vh" : "80vh";
             container.style.width = `${width}px`;
             container.style.height = `${height}px`;
         });
@@ -130,9 +134,17 @@ export function ProjectPreview({
                         )}
                     </AnimatePresence>
                     {previewVisbile && (
-                        <button className="absolute top-4 right-4" onClick={closePreview}>
-                            <Close />
-                        </button>
+                        <div className="absolute top-4 right-4">
+                            <button
+                                data-tooltip-hidden={isSmallScreen}
+                                data-tooltip="Close preview"
+                                className="p-2 bg-background-secondary hover:bg-background-secondary/80 transition-colors shadow-md rounded-md"
+                                onClick={closePreview}
+                                aria-label="Close preview"
+                            >
+                                <Close />
+                            </button>
+                        </div>
                     )}
                 </div>
             </div>

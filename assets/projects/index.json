@@ -44,5 +44,27 @@
             }
         ],
         "tech": ["Next.js", "Tailwind", "Stripe"]
+    },
+    {
+        "title": "Portfolio",
+        "description": "My website displaying my knowledge, experiences, tech-stack and a little about me.",
+        "longDescription": "This website was created to display my knowledge, experiences, tech-stack and a little about me. Far from the first one, but the best one yet.",
+        "date": "March, 2025",
+        "image": "/projects/portfolio.png",
+        "links": [
+            {
+                "title": "Figma",
+                "url": "https://www.figma.com/design/0PUAXDWk15w8kXTIgvZNhN/Portfolio?node-id=1-2&t=p7nbkMYEOrRmzokg-1"
+            },
+            {
+                "title": "GitHub",
+                "url": "https://github.com/albinkarvling/portfolio-new"
+            },
+            {
+                "title": "Website",
+                "url": "https://albinkarvling.com"
+            }
+        ],
+        "tech": ["Next.js", "Tailwind"]
     }
 ]

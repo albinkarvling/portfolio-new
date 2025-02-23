@@ -17,7 +17,7 @@
             },
             {
                 "title": "Website",
-                "url": "https://statify.poxen.dev"
+                "url": "https://statify.albinkarvling.com"
             }
         ],
         "tech": ["Next.js", "Redux", "REST API"]
@@ -40,7 +40,7 @@
             },
             {
                 "title": "Website",
-                "url": "https://medito.poxen.dev"
+                "url": "https://medito.albinkarvling.com"
             }
         ],
         "tech": ["Next.js", "Tailwind", "Stripe"]

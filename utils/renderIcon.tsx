@@ -15,8 +15,19 @@ export function renderIcon(
         case "Website":
             return <OpenInNew fontSize={size} />;
         case "Figma":
+            let iconSize = 24;
+            switch (size) {
+                case "small":
+                    iconSize = 20;
+                    break;
+                case "large":
+                    iconSize = 28;
+                    break;
+                default:
+                    break;
+            }
             return (
-                <svg viewBox="0 0 15 15" fill="none" width="20">
+                <svg viewBox="0 0 15 15" fill="none" width={iconSize}>
                     <path
                         fillRule="evenodd"
                         clipRule="evenodd"

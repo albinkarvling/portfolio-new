@@ -3,9 +3,16 @@ import {Close} from "@mui/icons-material";
 import {AnimatePresence, motion} from "framer-motion";
 import Image from "next/image";
 import {useRef, useState} from "react";
+import {RevealElement} from "../RevealElement/RevealElement";
 
 const ANIMATION_DURATION = 700;
-export function ProjectPreview({project}: {project: Project}) {
+export function ProjectPreview({
+    project,
+    isVisible,
+}: {
+    project: Project;
+    isVisible: boolean;
+}) {
     const [previewVisbile, setPreviewVisible] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
@@ -75,58 +82,60 @@ export function ProjectPreview({project}: {project: Project}) {
     };
 
     return (
-        <div className="w-full md:w-[472px] aspect-video" ref={containerRef}>
-            <AnimatePresence>
-                {previewVisbile && (
-                    <motion.div
-                        initial={{opacity: 0}}
-                        animate={{opacity: 1}}
-                        exit={{opacity: 0}}
-                        className="fixed inset-0 w-full h-full bg-black/80"
-                        onClick={closePreview}
-                    />
-                )}
-            </AnimatePresence>
-            <div
-                className="flex transition-[top,left,transform,width,height]"
-                ref={contentRef}
-            >
-                <AnimatePresence>
-                    {!previewVisbile && (
-                        <motion.button
-                            initial={{opacity: 1}}
-                            animate={{opacity: 1}}
-                            exit={{opacity: 0}}
-                            className="w-full h-full"
-                            onClick={showPreview}
-                        >
-                            <Image
-                                className="w-full h-full object-cover"
-                                src={project.image}
-                                width={472}
-                                height={264}
-                                alt=""
-                            />
-                        </motion.button>
-                    )}
-                </AnimatePresence>
+        <RevealElement className="w-full md:w-[472px] aspect-video" isVisible={isVisible}>
+            <div ref={containerRef}>
                 <AnimatePresence>
                     {previewVisbile && (
-                        <motion.iframe
+                        <motion.div
                             initial={{opacity: 0}}
                             animate={{opacity: 1}}
                             exit={{opacity: 0}}
-                            className="absolute inset-0 w-full h-full"
-                            src={project.links[2].url}
+                            className="fixed inset-0 w-full h-full bg-black/80"
+                            onClick={closePreview}
                         />
                     )}
                 </AnimatePresence>
-                {previewVisbile && (
-                    <button className="absolute top-4 right-4" onClick={closePreview}>
-                        <Close />
-                    </button>
-                )}
+                <div
+                    className="flex transition-[top,left,transform,width,height]"
+                    ref={contentRef}
+                >
+                    <AnimatePresence>
+                        {!previewVisbile && (
+                            <motion.button
+                                initial={{opacity: 1}}
+                                animate={{opacity: 1}}
+                                exit={{opacity: 0}}
+                                className="w-full h-full"
+                                onClick={showPreview}
+                            >
+                                <Image
+                                    className="w-full h-full object-cover"
+                                    src={project.image}
+                                    width={472}
+                                    height={264}
+                                    alt=""
+                                />
+                            </motion.button>
+                        )}
+                    </AnimatePresence>
+                    <AnimatePresence>
+                        {previewVisbile && (
+                            <motion.iframe
+                                initial={{opacity: 0}}
+                                animate={{opacity: 1}}
+                                exit={{opacity: 0}}
+                                className="absolute inset-0 w-full h-full"
+                                src={project.links[2].url}
+                            />
+                        )}
+                    </AnimatePresence>
+                    {previewVisbile && (
+                        <button className="absolute top-4 right-4" onClick={closePreview}>
+                            <Close />
+                        </button>
+                    )}
+                </div>
             </div>
-        </div>
+        </RevealElement>
     );
 }

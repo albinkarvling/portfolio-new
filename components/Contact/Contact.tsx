@@ -96,7 +96,11 @@ export function Contact() {
                     onChange={updateProperty("message")}
                     textArea
                 />
-                <Button disabled={loading} className="mt-2 justify-self-center">
+                <Button
+                    disabled={loading}
+                    className="mt-2 justify-self-center"
+                    color="quaternary"
+                >
                     {loading ? "Sending..." : "Start conversation"}
                 </Button>
             </form>

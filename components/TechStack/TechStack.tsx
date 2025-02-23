@@ -9,7 +9,7 @@ const getHeightForIndex = (index: number) => HEIGHTS[index % HEIGHTS.length];
 export function TechStack() {
     const containerRef = useRef<HTMLDivElement>(null);
     return (
-        <section className="main-width" ref={containerRef}>
+        <section id="tech-stack-section" className="main-width" ref={containerRef}>
             <ul className="pb-20 xl:pb-0 grid items-end xl:grid-cols-5 gap-10 xl:gap-0 overflow-hidden">
                 {TECH_STACK.map((tech, index) => {
                     return (

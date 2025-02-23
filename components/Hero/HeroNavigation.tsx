@@ -1,13 +1,14 @@
 "use client";
 import useAnimateIntoView from "@/hooks/useAnimateIntoView";
+import {scrollToSection} from "@/utils/scrollToSection";
 import {createRef, useEffect, useRef} from "react";
 import {twMerge} from "tailwind-merge";
 
 const NAVBAR_TABS = [
-    {id: 1, title: "About"},
-    {id: 2, title: "Projects"},
-    {id: 3, title: "Tech-Stack"},
-    {id: 4, title: "Contact"},
+    {title: "About", id: "about-section"},
+    {title: "Projects", id: "project-section"},
+    {title: "Tech-Stack", id: "tech-stack-section"},
+    {title: "Contact", id: "contact-section"},
 ];
 
 const BREAKPOINT = 1024;
@@ -115,6 +116,7 @@ export function HeroNavigation({className}: {className?: string}) {
                         key={tab.id}
                     >
                         <button
+                            onClick={() => scrollToSection(tab.id)}
                             className={twMerge(
                                 "relative z-10 w-full h-full p-6 pr-8 pl-12 uppercase font-bold text-3xl lg:text-5xl whitespace-nowrap flex items-center justify-center lg:justify-end overflow-hidden",
                                 "[--extra-width:24px] after:z-[-1] after:absolute group-odd:after:right-[calc(100%+var(--extra-width))] lg:group-odd:after:-right-[calc(100%+var(--extra-width))] after:-right-[calc(100%+var(--extra-width))] after:h-full after:w-[calc(100%+var(--extra-width))] after:transition-[right] after:duration-300 after:ease-in-out after:shadow-lg after:border-y-2 after:border-y-background-tertiary/40 after:bg-gradient-to-l after:bg-background-secondary/30",

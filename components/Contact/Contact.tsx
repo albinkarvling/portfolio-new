@@ -54,7 +54,10 @@ export function Contact() {
     };
 
     return (
-        <section className="py-20 bg-background-secondary border-t-[1px] border-t-background-tertiary">
+        <section
+            className="py-20 bg-background-secondary border-t-[1px] border-t-background-tertiary"
+            id="contact-section"
+        >
             <h2 className="text-center text-5xl font-semibold">
                 Let&apos;s get in touch.
             </h2>

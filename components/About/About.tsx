@@ -59,7 +59,7 @@ export function About() {
     const [currentTab, setCurrentTab] = useState(ABOUT_TABS[0].id);
 
     return (
-        <section className="py-28 w-main max-w-main mx-auto">
+        <section className="py-28 w-main max-w-main mx-auto" id="about-section">
             <h2 className="text-5xl font-semibold">About my journey</h2>
 
             <SelectableTabs

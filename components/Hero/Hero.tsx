@@ -6,6 +6,7 @@ import {HeroNavigation} from "./HeroNavigation";
 import {useRef} from "react";
 import useAnimateIntoView, {DEFAULT_INITIAL_STATE} from "@/hooks/useAnimateIntoView";
 import {HeroTypingHeader} from "./HeroTypingHeader";
+import {scrollToSection} from "@/utils/scrollToSection";
 
 export function Hero() {
     const subHeaderRef = useRef<HTMLParagraphElement>(null);
@@ -35,7 +36,8 @@ export function Hero() {
                             ref={textRef}
                         >
                             I am a full stack developer, with experience in frontend,
-                            backend & cloud technologies.
+                            backend & cloud technologies. I specialize in frontend,
+                            though.
                         </p>
                     </div>
                     <HeroLinks />
@@ -44,6 +46,7 @@ export function Hero() {
             </div>
 
             <button
+                onClick={() => scrollToSection("about-section")}
                 className="mt-8 lg:mt-0 mx-auto lg:absolute bottom-16 left-2/4 lg:-translate-x-2/4 grid place-items-center gap-1"
                 data-spotlight
             >

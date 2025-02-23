@@ -1,4 +1,4 @@
-import {RefObject, useCallback, useEffect} from "react";
+import {RefObject, useCallback, useEffect, useState} from "react";
 
 export const DEFAULT_INITIAL_STATE: {
     opacity: number;
@@ -24,10 +24,12 @@ export default function useAnimateIntoView(
               duration?: number;
               threshold?: number;
               initialState?: typeof DEFAULT_INITIAL_STATE;
-              siblingRef?: RefObject<HTMLElement>;
+              siblingRef?: RefObject<HTMLElement | null>;
           }
         | undefined = {},
 ) {
+    const [isVisible, setIsVisible] = useState(false);
+
     const getVisible = useCallback(
         (ref: RefObject<HTMLElement | null>) => {
             if (!ref.current) return false;
@@ -41,7 +43,9 @@ export default function useAnimateIntoView(
 
     const getSiblingVisible = useCallback(() => {
         if (!siblingRef?.current) return false;
-        return getVisible(siblingRef);
+        const isVisible = getVisible(siblingRef);
+        setIsVisible(isVisible);
+        return isVisible;
     }, [getVisible, siblingRef]);
 
     useEffect(() => {
@@ -59,12 +63,18 @@ export default function useAnimateIntoView(
             if (!ref.current) return;
 
             const isVisible = getVisible(ref) || getSiblingVisible();
+            setIsVisible(isVisible);
 
             if (isVisible) {
                 ref.current.style.opacity = "1";
                 ref.current.style.transform = "translateY(0px)";
 
                 window.removeEventListener("scroll", onScroll);
+
+                setTimeout(() => {
+                    if (!ref.current) return;
+                    ref.current.style.transform = "";
+                }, duration + delay);
             }
         };
         onScroll();
@@ -81,5 +91,5 @@ export default function useAnimateIntoView(
         ref,
     ]);
 
-    return {initialState};
+    return {initialState, isVisible};
 }

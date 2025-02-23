@@ -1,0 +1,65 @@
+[
+    {
+        "title": "Statify",
+        "description":
+            "An application to expand and view your listening habits. Made using Next.js and Spotify’s API.",
+        "date": "Sep, 2023",
+        "links": [
+            {
+                "title": "Figma",
+                "url": "https://www.figma.com/design/2AT6A1xuBWXLmuwoyehxNu/Statify?node-id=0-1&p=f&t=XNUCCUkcwLUTIWYG-0"
+            },
+            {
+                "title": "GitHub",
+                "url": "https://github.com/albinkarvling/statify"
+            },
+            {
+                "title": "Website",
+                "url": "https://statify.poxen.dev"
+            }
+        ],
+        "tech": ["Next.js", "Redux", "REST API"]
+    },
+    {
+        "title": "Medito",
+        "description":
+            "A fundraiser website created for a well-established meditation organization.",
+        "date": "Jan, 2024",
+        "links": [
+            {
+                "title": "Figma",
+                "url": "https://www.figma.com/design/XJLLyttYk2sUvSMcYEgj01/Medito?t=z7CE3USA9vybLChv-1"
+            },
+            {
+                "title": "GitHub",
+                "url": "https://github.com/albinkarvling/medito"
+            },
+            {
+                "title": "Website",
+                "url": "https://medito.poxen.dev"
+            }
+        ],
+        "tech": ["Next.js", "Tailwind", "Stripe"]
+    },
+    {
+        "title": "Portfolio",
+        "description":
+            "My website displaying my knowledge, experiences, tech-stack and a little about me.",
+        "date": "Feb, 2025",
+        "links": [
+            {
+                "title": "Figma",
+                "url": "https://www.figma.com/design/0PUAXDWk15w8kXTIgvZNhN/Portfolio?node-id=1-2&t=ewO7zYmiLMkyqA05-1"
+            },
+            {
+                "title": "GitHub",
+                "url": "https://github.com/albinkarvling/new-newest-portfolio"
+            },
+            {
+                "title": "Website",
+                "url": "https://poxen.dev"
+            }
+        ],
+        "tech": ["Next.js", "Tailwind"]
+    }
+]

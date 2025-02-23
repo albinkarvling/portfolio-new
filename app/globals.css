@@ -6,6 +6,10 @@ body {
     @apply bg-background-primary text-text-primary;
 }
 
+.main-width {
+    @apply w-main max-w-main mx-auto;
+}
+
 [data-tooltip] {
     position: relative;
 }

@@ -128,7 +128,10 @@ export function HeroBackground() {
             currentMouseRef.current.x +=
                 (mousePositionRef.current.x - currentMouseRef.current.x) * LERP_SPEED;
             currentMouseRef.current.y +=
-                (mousePositionRef.current.y - currentMouseRef.current.y) * LERP_SPEED;
+                (mousePositionRef.current.y -
+                    currentMouseRef.current.y +
+                    window.scrollY) *
+                LERP_SPEED;
 
             updateMask(
                 currentRadiusRef.current,

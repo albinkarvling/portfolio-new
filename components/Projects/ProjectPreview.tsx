@@ -75,7 +75,7 @@ export function ProjectPreview({project}: {project: Project}) {
     };
 
     return (
-        <div className="w-[472px] aspect-video" ref={containerRef}>
+        <div className="w-full md:w-[472px] aspect-video" ref={containerRef}>
             <AnimatePresence>
                 {previewVisbile && (
                     <motion.div
@@ -101,7 +101,7 @@ export function ProjectPreview({project}: {project: Project}) {
                             onClick={showPreview}
                         >
                             <Image
-                                className="w-full h-full"
+                                className="w-full h-full object-cover"
                                 src={project.image}
                                 width={472}
                                 height={264}

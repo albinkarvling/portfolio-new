@@ -59,7 +59,7 @@ export function Contact() {
                 Let&apos;s get in touch.
             </h2>
             <form
-                className="mt-8 w-[550px] max-w-full mx-auto grid gap-2"
+                className="mt-8 w-[550px] max-w-main mx-auto grid gap-2"
                 onSubmit={handleSubmit}
                 noValidate
             >

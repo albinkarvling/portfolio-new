@@ -6,8 +6,12 @@ export function ProjectList() {
     return (
         <ul className="py-20 main-width">
             {PROJECTS.map((project, index) => (
-                <li key={project.title}>
-                    <ProjectListItem project={project} index={index} />
+                <li className="group" key={project.title}>
+                    <ProjectListItem
+                        className="group-first:pt-0"
+                        project={project}
+                        index={index}
+                    />
                 </li>
             ))}
         </ul>

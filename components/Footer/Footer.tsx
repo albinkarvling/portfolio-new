@@ -13,7 +13,7 @@ export function Footer() {
                             <li key={link.text}>
                                 <Tooltip text={link.text} color="quaternary">
                                     <a
-                                        className="text-5xl"
+                                        className="text-3xl sm:text-5xl"
                                         href={link.url}
                                         target="_blank"
                                         rel="noreferrer"

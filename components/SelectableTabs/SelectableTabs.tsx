@@ -87,9 +87,8 @@ export function SelectableTabs<T extends string>({
                 ref={containerRef}
             >
                 {tabs.map((tab, index) => (
-                    <li style={initialState} ref={tabRefs[index]} key={tab.id}>
+                    <li role="tab" style={initialState} ref={tabRefs[index]} key={tab.id}>
                         <button
-                            role="tab"
                             aria-controls={tab.ariaControls}
                             onClick={() => handleSelect(tab.id)}
                             className={twMerge(

@@ -106,6 +106,7 @@ export function ProjectPreview({
                     <AnimatePresence>
                         {!previewVisbile && (
                             <motion.button
+                                aria-label={`Preview ${project.title}`}
                                 initial={{opacity: 1}}
                                 animate={{opacity: 1}}
                                 exit={{opacity: 0}}

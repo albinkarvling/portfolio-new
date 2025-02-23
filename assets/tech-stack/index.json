@@ -1,0 +1,38 @@
+[
+    {
+        "title": "HTML",
+        "description": "Not much pure HTML nowadays, but the semantic structure is there.",
+        "addons": ["JSX", "SEO", "Accessibility"]
+    },
+    {
+        "title": "CSS",
+        "description":
+            "I love exploring new ways to style things. Tailwind’s the favorite right now.",
+        "addons": ["SCSS", "Tailwind", "Styled Components/Emotion"]
+    },
+    {
+        "title": "JavaScript",
+        "description": "The language I started with, and have had by my side since.",
+        "addons": [
+            "TypeScript",
+            "React.js",
+            "Next.js",
+            "Redux",
+            "Jest",
+            "Hooks",
+            "React Native"
+        ]
+    },
+    {
+        "title": "Node.js",
+        "description":
+            "I have explored Python for backend, but Node.js has been my go-to lately.",
+        "addons": ["Express.js", "MySQL", "Prisma", "GraphQL"]
+    },
+    {
+        "title": "The Cloud",
+        "description":
+            "I enjoy making applications autonomous using Google’s cloud services.",
+        "addons": ["Google Cloud", "GitHub Actions", "Docker"]
+    }
+]

@@ -11,7 +11,10 @@ export function HeroTypingHeader() {
     );
 
     useEffect(() => {
-        if (hasReducedMotion) return;
+        if (hasReducedMotion) {
+            setLetterCount(HEADER_TEXT.length);
+            return;
+        }
         if (letterCount >= HEADER_TEXT.length) return;
         setTimeout(() => setLetterCount((prev) => prev + 1), TYPING_SPEED);
     }, [letterCount, hasReducedMotion]);

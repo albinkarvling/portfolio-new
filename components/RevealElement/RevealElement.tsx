@@ -1,3 +1,4 @@
+import {useHasReducedMotion} from "@/hooks/useHasReducedMotion";
 import {useEffect, useState} from "react";
 import {twMerge} from "tailwind-merge";
 
@@ -15,7 +16,14 @@ export function RevealElement({
     direction?: "left" | "top";
     color?: "primary" | "secondary" | "tertiary" | "quaternary";
 }) {
+    const hasReducedMotion = useHasReducedMotion();
     const [childrenAreVisible, setChildrenAreVisible] = useState(false);
+
+    useEffect(() => {
+        if (hasReducedMotion) {
+            setChildrenAreVisible(true);
+        }
+    }, [hasReducedMotion]);
 
     useEffect(() => {
         if (!isVisible) return;
@@ -33,7 +41,8 @@ export function RevealElement({
             }
             className={twMerge(
                 "relative w-fit overflow-hidden",
-                "after:absolute after:inset-0 after:w-[200%] after:h-[200%] after:transition-[left,top] after:duration-[--transition-duration]",
+                !hasReducedMotion &&
+                    "after:absolute after:inset-0 after:w-[200%] after:h-[200%] after:transition-[left,top] after:duration-[--transition-duration]",
                 color === "primary" && "after:bg-background-primary",
                 color === "secondary" && "after:bg-background-secondary",
                 color === "tertiary" && "after:bg-background-tertiary",

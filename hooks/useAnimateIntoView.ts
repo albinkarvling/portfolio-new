@@ -57,6 +57,8 @@ export default function useAnimateIntoView(
         }
         if (preferesNoMotion) {
             console.log("useAnimateIntoView: prefers-reduced-motion");
+            ref.current.style.transition = "";
+            setIsVisible(true);
             return;
         }
 

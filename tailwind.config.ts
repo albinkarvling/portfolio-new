@@ -21,6 +21,9 @@ export default {
                 "background-quaternary": "#22304A",
                 "text-primary": "#E0E1DD",
                 "text-secondary": "#888888",
+                button: "#18181a",
+                success: "#00FF00",
+                error: "#FF0000",
             },
             keyframes: {
                 "arrow-bounce": {

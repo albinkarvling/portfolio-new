@@ -8,7 +8,7 @@
         "title": "CSS",
         "description":
             "I love exploring new ways to style things. Tailwind’s the favorite right now.",
-        "addons": ["SCSS", "Tailwind", "Styled Components/Emotion"]
+        "addons": ["SCSS", "Tailwind", "Styled Components", "Emotion"]
     },
     {
         "title": "JavaScript",

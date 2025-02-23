@@ -1,6 +1,7 @@
 import {RefObject, useCallback, useEffect, useState} from "react";
+import {useHasReducedMotion} from "./useHasReducedMotion";
 
-export const DEFAULT_INITIAL_STATE: {
+const DEFAULT_INITIAL_STATE: {
     opacity: number;
     transform: string;
 } = {
@@ -28,7 +29,8 @@ export default function useAnimateIntoView(
           }
         | undefined = {},
 ) {
-    const [isVisible, setIsVisible] = useState(false);
+    const preferesNoMotion = useHasReducedMotion();
+    const [isVisible, setIsVisible] = useState(preferesNoMotion);
 
     const getVisible = useCallback(
         (ref: RefObject<HTMLElement | null>) => {
@@ -51,6 +53,10 @@ export default function useAnimateIntoView(
     useEffect(() => {
         if (!ref.current) {
             console.error("useAnimateIntoView: ref is not defined");
+            return;
+        }
+        if (preferesNoMotion) {
+            console.log("useAnimateIntoView: prefers-reduced-motion");
             return;
         }
 
@@ -92,7 +98,16 @@ export default function useAnimateIntoView(
         initialState.opacity,
         initialState.transform,
         ref,
+        preferesNoMotion,
     ]);
 
-    return {initialState, isVisible};
+    return {
+        initialState: preferesNoMotion
+            ? {
+                  opacity: 1,
+                  transform: "translate(0,0)",
+              }
+            : initialState,
+        isVisible,
+    };
 }

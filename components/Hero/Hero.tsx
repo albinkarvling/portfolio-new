@@ -4,7 +4,7 @@ import {HeroBackground} from "./HeroBackground";
 import {HeroLinks} from "./HeroLinks";
 import {HeroNavigation} from "./HeroNavigation";
 import {useRef} from "react";
-import useAnimateIntoView, {DEFAULT_INITIAL_STATE} from "@/hooks/useAnimateIntoView";
+import useAnimateIntoView from "@/hooks/useAnimateIntoView";
 import {HeroTypingHeader} from "./HeroTypingHeader";
 import {scrollToSection} from "@/utils/scrollToSection";
 
@@ -12,7 +12,7 @@ export function Hero() {
     const subHeaderRef = useRef<HTMLParagraphElement>(null);
     const textRef = useRef<HTMLParagraphElement>(null);
 
-    useAnimateIntoView(subHeaderRef, {delay: 800});
+    const {initialState} = useAnimateIntoView(subHeaderRef, {delay: 800});
     useAnimateIntoView(textRef, {delay: 1000});
 
     return (
@@ -25,14 +25,14 @@ export function Hero() {
                         <HeroTypingHeader />
                         <p
                             className="mt-2 text-4xl text-text-secondary"
-                            style={DEFAULT_INITIAL_STATE}
+                            style={initialState}
                             ref={subHeaderRef}
                         >
                             I create stuff sometimes.
                         </p>
                         <p
                             className="mt-4 text-lg font-medium text-text-secondary"
-                            style={DEFAULT_INITIAL_STATE}
+                            style={initialState}
                             ref={textRef}
                         >
                             I am a full stack developer, with experience in frontend,

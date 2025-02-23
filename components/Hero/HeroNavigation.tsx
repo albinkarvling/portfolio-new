@@ -75,7 +75,7 @@ export function HeroNavigation({className}: {className?: string}) {
         return () => window.removeEventListener("resize", setBackgroundSize);
     }, []);
 
-    useAnimateIntoView(tabRefs[0], {
+    const {initialState} = useAnimateIntoView(tabRefs[0], {
         initialState: END_ANIMATE_STATE,
         threshold: 100,
         delay: 300,
@@ -111,7 +111,7 @@ export function HeroNavigation({className}: {className?: string}) {
                 {NAVBAR_TABS.map((tab, index) => (
                     <li
                         className="group"
-                        style={INITIAL_ANIMATE_STATE}
+                        style={initialState}
                         ref={tabRefs[index]}
                         key={tab.id}
                     >

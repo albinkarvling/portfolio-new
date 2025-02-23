@@ -1,4 +1,5 @@
 "use client";
+import {useHasReducedMotion} from "@/hooks/useHasReducedMotion";
 import React, {useEffect, useRef, forwardRef, useCallback} from "react";
 import {twMerge} from "tailwind-merge";
 
@@ -16,6 +17,7 @@ type HeroGridProps = {
     containerRef: React.RefObject<HTMLDivElement | null>;
 };
 const HeroGrid = forwardRef(({spotlight, containerRef}: HeroGridProps, ref) => {
+    const hasReducedMotion = useHasReducedMotion();
     const [columnCount, setColumnCount] = React.useState(0);
     const [rowCount, setRowCount] = React.useState(0);
 
@@ -60,7 +62,9 @@ const HeroGrid = forwardRef(({spotlight, containerRef}: HeroGridProps, ref) => {
                                 key={index}
                                 className={twMerge(
                                     "flex-1 aspect-square border-l-[1px] border-b-[1px] first-of-type:border-l-0 border-background-tertiary/70",
-                                    spotlight && "border-text-primary",
+                                    spotlight &&
+                                        !hasReducedMotion &&
+                                        "border-text-primary",
                                 )}
                                 style={{width: TILE_SIZE}}
                             />
@@ -74,6 +78,7 @@ const HeroGrid = forwardRef(({spotlight, containerRef}: HeroGridProps, ref) => {
 HeroGrid.displayName = "HeroGrid"; // Avoid Next.js warnings
 
 export function HeroBackground() {
+    const hasReducedMotion = useHasReducedMotion();
     const containerRef = useRef<HTMLDivElement>(null);
     const maskRef = useRef<HTMLDivElement>(null);
     const targetRadius = useRef(BASE_RADIUS);
@@ -113,6 +118,7 @@ export function HeroBackground() {
     }, []);
 
     useEffect(() => {
+        if (hasReducedMotion) return;
         if (!containerRef.current) return;
         const container = containerRef.current;
 
@@ -172,7 +178,7 @@ export function HeroBackground() {
                 cancelAnimationFrame(animationFrame.current);
             }
         };
-    }, [startAnimation]);
+    }, [startAnimation, hasReducedMotion]);
 
     return (
         <div

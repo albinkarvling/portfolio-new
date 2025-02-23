@@ -10,6 +10,12 @@ body {
     @apply w-main max-w-main mx-auto;
 }
 
+.text-outline {
+    color: transparent;
+    -webkit-text-stroke: 1px #1B263B;
+    font-family: "Roboto", sans-serif;
+}
+
 [data-tooltip] {
     position: relative;
 }

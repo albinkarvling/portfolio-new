@@ -3,7 +3,9 @@
         "title": "Statify",
         "description":
             "An application to expand and view your listening habits. Made using Next.js and Spotify’s API.",
+        "longDescription": "Statify was created to easily expand your own music taste based on similar artists and songs you like. If you want to, explore entirely new genres & artists.",
         "date": "Sep, 2023",
+        "image": "/projects/statify.png",
         "links": [
             {
                 "title": "Figma",
@@ -24,7 +26,9 @@
         "title": "Medito",
         "description":
             "A fundraiser website created for a well-established meditation organization.",
+        "longDescription": "Medito was a fundraising project I was assigned by a well-established meditation organization. The deadline for this project was a little under a week, but I finished within the timeframe and this solution was accepted.",
         "date": "Jan, 2024",
+        "image": "/projects/medito.png",
         "links": [
             {
                 "title": "Figma",
@@ -40,26 +44,5 @@
             }
         ],
         "tech": ["Next.js", "Tailwind", "Stripe"]
-    },
-    {
-        "title": "Portfolio",
-        "description":
-            "My website displaying my knowledge, experiences, tech-stack and a little about me.",
-        "date": "Feb, 2025",
-        "links": [
-            {
-                "title": "Figma",
-                "url": "https://www.figma.com/design/0PUAXDWk15w8kXTIgvZNhN/Portfolio?node-id=1-2&t=ewO7zYmiLMkyqA05-1"
-            },
-            {
-                "title": "GitHub",
-                "url": "https://github.com/albinkarvling/new-newest-portfolio"
-            },
-            {
-                "title": "Website",
-                "url": "https://poxen.dev"
-            }
-        ],
-        "tech": ["Next.js", "Tailwind"]
     }
 ]

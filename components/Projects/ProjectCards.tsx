@@ -23,18 +23,20 @@ export function ProjectCards() {
             >
                 <span className="px-8 bg-background-primary">Projects</span>
             </h2>
-            <ul className="py-20 main-width grid sm:grid-cols-2 lg:grid-cols-3 gap-4 border-b-[1px] border-b-background-secondary">
-                {PROJECTS.map((project, index) => (
-                    <li className="flex-grow" key={project.title}>
-                        <ProjectCard
-                            className="h-full"
-                            project={project}
-                            index={index}
-                            parentRef={headerRef}
-                        />
-                    </li>
-                ))}
-            </ul>
+            <div className="py-20 border-b-[1px] border-b-background-secondary">
+                <ul className="main-width grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {PROJECTS.map((project, index) => (
+                        <li className="flex-grow" key={project.title}>
+                            <ProjectCard
+                                className="h-full"
+                                project={project}
+                                index={index}
+                                parentRef={headerRef}
+                            />
+                        </li>
+                    ))}
+                </ul>
+            </div>
         </>
     );
 }

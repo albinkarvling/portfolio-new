@@ -18,7 +18,7 @@ export function AboutCard({
 
     return (
         <div
-            className="relative flex flex-col p-4 font-medium text-sm bg-background-secondary hover:bg-background-tertiary transition-colors rounded-md"
+            className="relative h-full flex flex-col p-4 font-medium text-sm bg-background-secondary hover:bg-background-tertiary transition-colors rounded-md"
             style={initialState}
             ref={ref}
         >

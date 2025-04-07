@@ -5,11 +5,10 @@ import {type SelectableTab} from "../SelectableTabs/SelectableTabs";
 import useAnimateIntoView from "@/hooks/useAnimateIntoView";
 import {AboutActivePanel} from "./AboutActivePanel";
 
-type AboutTabId = "about-me" | "how-it-started" | "my-mindset";
+type AboutTabId = "about-me" | "experience";
 const ABOUT_TABS: SelectableTab<AboutTabId>[] = [
+    {text: "Experience", id: "experience", ariaControls: "experience-panel"},
     {text: "About me", id: "about-me", ariaControls: "about-me-panel"},
-    {text: "How it started", id: "how-it-started", ariaControls: "how-it-started-panel"},
-    {text: "My mindset", id: "my-mindset", ariaControls: "my-mindset-panel"},
 ] as const;
 
 const getAge = () => {
@@ -29,30 +28,55 @@ const getAge = () => {
 };
 const ABOUT_PANEL_CONTENTS = {
     "about-me": {
-        text: "My name is Albin Kärvling. I have been coding since I was 12, and am currently 20 years old. I am a full stack developer specializing in frontend development, but have knowledge of both backend and cloud solutions. In 2023, I graduated high school specializing in natural sciences, though programming has always been my true calling.",
+        text: `My name is Albin Kärvling. I have been coding since I was 12, and am currently ${getAge()} years old. I am a full stack developer specializing in frontend development, but have knowledge of both backend and cloud solutions. In 2023, I graduated high school specializing in natural sciences, though programming has always been my true calling.`,
         bulletPoints: [
             "Full stack developer",
             "Specializing in frontend",
             "Started when I was 12",
             `${getAge()} years old`,
         ],
+        cards: [],
     },
-    "how-it-started": {
-        text: "I started coding when I was 12 years old, and I have been coding ever since. I started with simple HTML and CSS, and then moved on to JavaScript. I have always been interested in technology, and programming has always been my true calling.",
-        bulletPoints: [
-            "Started with HTML and CSS",
-            "Moved on to JavaScript",
-            "Always been interested in technology",
-            "Programming has always been my true calling",
-        ],
-    },
-    "my-mindset": {
-        text: "I have a growth mindset, and I am always looking to improve myself. I am constantly learning new things, and I am always looking for new challenges. I am a hard worker, and I am always looking to improve myself. I am always looking to improve my skills, and I am always looking to improve my knowledge.",
-        bulletPoints: [
-            "Growth mindset",
-            "Always looking to improve myself",
-            "Constantly learning new things",
-            "Always looking for new challenges",
+    experience: {
+        text: "",
+        bulletPoints: [],
+        cards: [
+            {
+                title: "ATG - Frontend",
+                subTitle: "Sweden's second largest casino",
+                description: [
+                    "Working in the forefront of payment, anti money laundering and customer knowledge.",
+                    "Agile work methods with a focus on collaboration and communication.",
+                    "Working as the lead for our accessibility initiative.",
+                ],
+                site: "https://atg.se",
+                icon: "/images/atg.png",
+                date: "Nov 2024 - Present",
+            },
+            {
+                title: "Rythm - Frontend",
+                subTitle: "Largest discord bot",
+                description: [
+                    "Developed the dashboard for the largest discord bot with over 20 million users.",
+                    "Worked closely with backenders and designers to create a seamless experience.",
+                    "Frequent meetings to discuss progress.",
+                ],
+                site: "https://rythm.fm",
+                icon: "/images/rythm.png",
+                date: "Apr 2021 - Aug 2021",
+            },
+            {
+                title: "Fullstack developer",
+                subTitle: "Self-taught",
+                description: [
+                    "My curiosity for programming stared when I was 12 years old.",
+                    "Started with frontend, but have gotten into backend and cloud services.",
+                    "Love exploring new technologies and frameworks.",
+                ],
+                site: "https://albinkarvling.com",
+                icon: "/images/portfolio.png",
+                date: "March 2017 - Present",
+            },
         ],
     },
 } as const;

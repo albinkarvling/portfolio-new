@@ -1,5 +1,27 @@
 [
     {
+        "title": "Algolizer",
+        "description": "A website to visualize and learn about algorithms in a playfun and fun way.",
+        "longDescription": "Algolizer was created to learn about how algorithms work in a playful way. It was a really fun and interesting project to work on.",
+        "date": "Apr, 2025",
+        "image": "/projects/algolizer.png",
+        "links": [
+            {
+                "title": "Figma",
+                "url": "https://www.figma.com/design/Rz5lxmCv53xT7usxRvYBs3/Untitled?node-id=0-1&p=f&t=YKdcc9MKFDajgSzZ-0"
+            },
+            {
+                "title": "GitHub",
+                "url": "https://github.com/albinkarvling/algolizer"
+            },
+            {
+                "title": "Website",
+                "url": "https://algolizer.albinkarvling.com"
+            }
+        ],
+        "tech": ["React.js", "Emotion", "Docker"]
+    },
+    {
         "title": "Statify",
         "description":
             "An application to expand and view your listening habits. Made using Next.js and Spotify’s API.",

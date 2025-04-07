@@ -4,6 +4,7 @@ import {LINKS} from "@/assets/links";
 import useAnimateIntoView from "@/hooks/useAnimateIntoView";
 import {renderIcon} from "@/utils/renderIcon";
 import {createRef} from "react";
+import {Tooltip} from "../Tooltip";
 
 export function HeroLinks() {
     const linkRefs = LINKS.map(() => createRef<HTMLLIElement>());
@@ -18,12 +19,11 @@ export function HeroLinks() {
                 <li
                     style={initialState}
                     className="relative"
-                    data-tooltip={text}
                     ref={linkRefs[index]}
                     key={text}
                 >
                     <LinkBubble />
-                    <div className="absolute inset-0 -ml-0.5 -mt-1.5">
+                    <Tooltip text={text} className="absolute inset-0 -ml-0.5 -mt-1.5">
                         <a
                             href={url}
                             target="_blank"
@@ -34,7 +34,7 @@ export function HeroLinks() {
                         >
                             <div className="text-4xl">{renderIcon(text)}</div>
                         </a>
-                    </div>
+                    </Tooltip>
                 </li>
             ))}
         </ul>

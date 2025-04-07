@@ -51,8 +51,8 @@ export default function useAnimateIntoView(
     }, [getVisible, siblingRef]);
 
     useEffect(() => {
-        if (!ref.current) {
-            console.error("useAnimateIntoView: ref is not defined");
+        if (!ref?.current) {
+            console.warn("useAnimateIntoView: ref is not defined");
             return;
         }
         if (preferesNoMotion) {

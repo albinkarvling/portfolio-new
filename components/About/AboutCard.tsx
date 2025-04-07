@@ -31,7 +31,7 @@ export function AboutCard({
                     alt=""
                 />
                 <div className="flex-1 flex flex-col gap-0.5">
-                    <div className="flex justify-between items-center">
+                    <div className="flex justify-between items-center flex-wrap-reverse">
                         <span className="text-base">{card.title}</span>
                         <span className="text-xs text-text-secondary">{card.date}</span>
                     </div>

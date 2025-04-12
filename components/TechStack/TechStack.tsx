@@ -9,12 +9,7 @@ const getHeightForIndex = (index: number) => HEIGHTS[index % HEIGHTS.length];
 export function TechStack() {
     const containerRef = useRef<HTMLDivElement>(null);
     return (
-        <section
-            id="tech-stack-section"
-            aria-labelledby="tech-stack-header"
-            className="main-width"
-            ref={containerRef}
-        >
+        <section className="main-width" ref={containerRef}>
             <h2 id="tech-stack-header" className="sr-only">
                 Tech-stack
             </h2>

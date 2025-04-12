@@ -5,10 +5,10 @@ import {createRef, useEffect, useRef} from "react";
 import {twMerge} from "tailwind-merge";
 
 const NAVBAR_TABS = [
-    {title: "About", id: "about-section"},
-    {title: "Projects", id: "project-section"},
-    {title: "Tech-Stack", id: "tech-stack-section"},
-    {title: "Contact", id: "contact-section"},
+    {title: "About", id: "about-header"},
+    {title: "Projects", id: "projects-header"},
+    {title: "Tech-Stack", id: "tech-stack-header"},
+    {title: "Contact", id: "contact-header"},
 ];
 
 const BREAKPOINT = 1024;
@@ -65,7 +65,7 @@ export function HeroNavigation({className}: {className?: string}) {
             container.style.height = `${height}px`;
             container.style.top = `${tilesFromTop * tileHeight}px`;
         };
-        setTimeout(setBackgroundSize, 0);
+        setTimeout(setBackgroundSize, 10);
 
         window.addEventListener("resize", setBackgroundSize);
         return () => window.removeEventListener("resize", setBackgroundSize);

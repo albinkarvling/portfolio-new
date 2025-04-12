@@ -24,18 +24,14 @@ export function About() {
     });
 
     return (
-        <section
-            id="about-section"
-            aria-labelledby="about-header"
-            className="py-28 w-main max-w-main mx-auto"
-        >
+        <section className="py-28 w-main max-w-main mx-auto">
             <h2
                 id="about-header"
                 style={initialState}
                 className="text-5xl font-semibold"
                 ref={headerRef}
             >
-                About my journey
+                My journey
             </h2>
 
             <div className="mt-8" style={initialState} ref={selectableTabsRef}>

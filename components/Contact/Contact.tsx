@@ -64,8 +64,6 @@ export function Contact() {
     return (
         <section
             className="bg-background-secondary border-t-[1px] border-t-background-tertiary"
-            aria-labelledby="contact-header"
-            id="contact-section"
             ref={containerRef}
         >
             <RevealElement

@@ -10,7 +10,7 @@ export function Projects() {
 
     const {isVisible, initialState} = useAnimateIntoView(headerRef);
     return (
-        <section className="py-20" id="project-section" aria-labelledby="projects-header">
+        <section className="py-20">
             <h2
                 id="projects-header"
                 style={initialState}

@@ -20,7 +20,7 @@ export function HeroTypingHeader() {
     }, [letterCount, hasReducedMotion]);
 
     return (
-        <h1
+        <h2
             className={twMerge(
                 "relative text-5xl font-semibold h-12",
                 !hasReducedMotion &&
@@ -29,6 +29,6 @@ export function HeroTypingHeader() {
             aria-label={HEADER_TEXT}
         >
             {HEADER_TEXT.slice(0, letterCount)}
-        </h1>
+        </h2>
     );
 }

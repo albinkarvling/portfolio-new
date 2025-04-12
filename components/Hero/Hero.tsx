@@ -19,6 +19,8 @@ export function Hero() {
         <section className="relative w-full lg:h-[100dvh]" id="hero-section">
             <HeroBackground />
 
+            <h1 className="sr-only">Albin Kärvling – A fullstack Developer</h1>
+
             <div className="h-full pt-24 lg:pt-0 flex flex-col lg:justify-center">
                 <div className="w-main max-w-main mx-auto flex flex-col items-center lg:items-start">
                     <div className="lg:-mt-6 w-[480px] max-w-full text-center lg:text-left grid place-items-center lg:place-items-start">
@@ -46,7 +48,7 @@ export function Hero() {
             </div>
 
             <button
-                onClick={() => scrollToSection("about-section")}
+                onClick={() => scrollToSection("about-header")}
                 className="mt-8 lg:mt-0 mx-auto lg:absolute bottom-16 left-2/4 lg:-translate-x-2/4 grid place-items-center gap-1"
                 data-spotlight
             >

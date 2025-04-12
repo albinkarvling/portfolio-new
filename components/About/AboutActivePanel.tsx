@@ -7,17 +7,14 @@ import {AboutBulletPoint} from "./AboutBulletPoint";
 export function AboutActivePanel({
     tabPanel,
     siblingRef,
-    ignoreDelay,
 }: {
     tabPanel: AboutPanel;
     siblingRef: React.RefObject<HTMLElement | null>;
-    ignoreDelay: boolean;
 }) {
     const headerRef = useRef<HTMLHeadingElement>(null);
 
-    const BASE_DELAY = ignoreDelay ? 0 : 300;
     const {initialState} = useAnimateIntoView(headerRef, {
-        delay: BASE_DELAY,
+        delay: 0,
         siblingRef,
     });
 
@@ -35,7 +32,7 @@ export function AboutActivePanel({
                         <li key={index}>
                             <AboutCard
                                 card={card}
-                                delay={BASE_DELAY + index * 250 + 150}
+                                delay={index * 250 + 150}
                                 siblingRef={headerRef}
                             />
                         </li>
@@ -49,7 +46,7 @@ export function AboutActivePanel({
                         <li key={index}>
                             <AboutBulletPoint
                                 bulletPoint={bulletPoint}
-                                delay={BASE_DELAY + index * 150 + 150}
+                                delay={index * 150 + 150}
                                 siblingRef={headerRef}
                             />
                         </li>

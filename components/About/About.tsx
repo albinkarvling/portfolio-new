@@ -85,15 +85,14 @@ export type AboutPanel = (typeof ABOUT_PANEL_CONTENTS)[AboutTabId];
 export function About() {
     const [currentTab, setCurrentTab] = useState(ABOUT_TABS[0].id);
 
-    const shouldIgnoreDelay = useRef(false);
     const headerRef = useRef<HTMLHeadingElement>(null);
+    const selectableTabsRef = useRef<HTMLDivElement>(null);
 
     const {initialState} = useAnimateIntoView(headerRef);
-
-    const handleTabChange = (tab: AboutTabId) => {
-        setCurrentTab(tab);
-        shouldIgnoreDelay.current = true;
-    };
+    useAnimateIntoView(selectableTabsRef, {
+        delay: 100,
+        siblingRef: headerRef,
+    });
 
     return (
         <section className="py-28 w-main max-w-main mx-auto" id="about-section">
@@ -101,12 +100,13 @@ export function About() {
                 About my journey
             </h2>
 
-            <SelectableTabs
-                tabs={ABOUT_TABS}
-                selectedTab={currentTab}
-                onSelect={handleTabChange}
-                className="mt-8"
-            />
+            <div className="mt-8" style={initialState} ref={selectableTabsRef}>
+                <SelectableTabs
+                    tabs={ABOUT_TABS}
+                    selectedTab={currentTab}
+                    onSelect={setCurrentTab}
+                />
+            </div>
 
             {ABOUT_TABS.map((tab) => {
                 const tabPanel = ABOUT_PANEL_CONTENTS[tab.id];
@@ -120,7 +120,6 @@ export function About() {
                     >
                         {isActivePanel && (
                             <AboutActivePanel
-                                ignoreDelay={shouldIgnoreDelay.current}
                                 tabPanel={tabPanel}
                                 siblingRef={headerRef}
                             />

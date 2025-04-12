@@ -1,5 +1,5 @@
-import {AboutPanel} from "./About";
 import {useRef} from "react";
+import {AboutSection} from "@/assets";
 import useAnimateIntoView from "@/hooks/useAnimateIntoView";
 import {AboutCard} from "./AboutCard";
 import {AboutBulletPoint} from "./AboutBulletPoint";
@@ -8,7 +8,7 @@ export function AboutActivePanel({
     tabPanel,
     siblingRef,
 }: {
-    tabPanel: AboutPanel;
+    tabPanel: AboutSection;
     siblingRef: React.RefObject<HTMLElement | null>;
 }) {
     const headerRef = useRef<HTMLHeadingElement>(null);

@@ -50,7 +50,7 @@ const ABOUT_PANEL_CONTENTS = {
                     "Working as the lead for our accessibility initiative.",
                 ],
                 site: "https://atg.se",
-                icon: "/images/atg.png",
+                image: "/images/atg.png",
                 date: "Nov 2024 - Present",
             },
             {
@@ -62,7 +62,7 @@ const ABOUT_PANEL_CONTENTS = {
                     "Frequent meetings to discuss progress.",
                 ],
                 site: "https://rythm.fm",
-                icon: "/images/rythm.png",
+                image: "/images/rythm.png",
                 date: "Apr 2021 - Aug 2021",
             },
             {
@@ -74,7 +74,7 @@ const ABOUT_PANEL_CONTENTS = {
                     "Love exploring new technologies and frameworks.",
                 ],
                 site: "https://albinkarvling.com",
-                icon: "/images/portfolio.png",
+                image: "/images/portfolio.png",
                 date: "March 2017 - Present",
             },
         ],

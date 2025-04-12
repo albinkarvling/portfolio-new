@@ -26,7 +26,7 @@ export function AboutCard({
                 <Image
                     width={44}
                     height={44}
-                    src={card.icon}
+                    src={card.image}
                     className="rounded-md min-w-11 h-11 aspect-square"
                     alt=""
                 />

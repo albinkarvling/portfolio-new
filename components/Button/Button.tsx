@@ -10,11 +10,22 @@ export type ButtonProps = {
     disabled?: boolean;
     style?: React.CSSProperties;
     color?: "primary" | "secondary" | "tertiary" | "quaternary";
+    type?: "button" | "submit";
 };
 
 const Button = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
     (
-        {children, icon, onClick, href, className, disabled, style, color = "secondary"},
+        {
+            children,
+            icon,
+            onClick,
+            href,
+            className,
+            disabled,
+            style,
+            color = "secondary",
+            type = "button",
+        },
         ref,
     ) => {
         const mergedProps = {
@@ -51,7 +62,11 @@ const Button = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPro
         }
 
         return (
-            <button ref={ref as React.Ref<HTMLButtonElement>} {...mergedProps}>
+            <button
+                type={type}
+                ref={ref as React.Ref<HTMLButtonElement>}
+                {...mergedProps}
+            >
                 {children}
                 {icon}
             </button>

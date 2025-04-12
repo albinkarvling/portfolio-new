@@ -6,13 +6,14 @@ import {RevealElement} from "../RevealElement/RevealElement";
 import useAnimateIntoView from "@/hooks/useAnimateIntoView";
 
 const EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+const INITIAL_STATE = {
+    name: "",
+    email: "",
+    message: "",
+};
 export function Contact() {
     const containerRef = useRef<HTMLDivElement>(null);
-    const [info, setInfo] = useState({
-        name: "",
-        email: "",
-        message: "",
-    });
+    const [info, setInfo] = useState(INITIAL_STATE);
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
     const [loading, setLoading] = useState(false);
@@ -53,7 +54,7 @@ export function Contact() {
 
         setLoading(false);
         setSuccess(data.message);
-        setInfo({name: "", email: "", message: ""});
+        setInfo(INITIAL_STATE);
     };
 
     const {isVisible} = useAnimateIntoView(containerRef, {
@@ -100,23 +101,27 @@ export function Contact() {
                         placeholder="Name"
                         label="Name"
                         onChange={updateProperty("name")}
+                        value={info.name}
                     />
                     <Input
                         placeholder="Email"
                         label="Email"
                         onChange={updateProperty("email")}
                         type="email"
+                        value={info.email}
                     />
                     <Input
                         placeholder="Message"
                         label="Message"
                         onChange={updateProperty("message")}
+                        value={info.message}
                         textArea
                     />
                     <Button
                         disabled={loading}
                         className="mt-2 justify-self-center"
                         color="quaternary"
+                        type="submit"
                     >
                         {loading ? "Sending..." : "Start conversation"}
                     </Button>

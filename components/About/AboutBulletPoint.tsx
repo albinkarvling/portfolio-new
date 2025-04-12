@@ -1,6 +1,6 @@
-import {AboutPanel} from "./About";
 import {useRef} from "react";
-import useAnimateIntoView from "@/hooks/useAnimateIntoView";
+import {AboutSection} from "@/assets";
+import {useAnimateIntoView} from "@/hooks";
 import {StyledCorner} from "./StyledCorner";
 
 export function AboutBulletPoint({
@@ -8,7 +8,7 @@ export function AboutBulletPoint({
     siblingRef,
     delay,
 }: {
-    bulletPoint: AboutPanel["bulletPoints"][number];
+    bulletPoint: AboutSection["bulletPoints"][number];
     siblingRef: React.RefObject<HTMLElement | null>;
     delay: number;
 }) {

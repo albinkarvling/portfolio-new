@@ -1,9 +1,7 @@
 "use client";
 import {useRef, useState} from "react";
-import {Input} from "../Input";
-import {Button} from "../Button";
-import {RevealElement} from "../RevealElement/RevealElement";
-import useAnimateIntoView from "@/hooks/useAnimateIntoView";
+import {useAnimateIntoView} from "@/hooks";
+import {RevealElement, Button, Input} from "@/ui";
 
 const EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 const INITIAL_STATE = {

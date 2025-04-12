@@ -1,6 +1,6 @@
 import {useRef} from "react";
 import {AboutSection} from "@/assets";
-import useAnimateIntoView from "@/hooks/useAnimateIntoView";
+import {useAnimateIntoView} from "@/hooks";
 import {AboutCard} from "./AboutCard";
 import {AboutBulletPoint} from "./AboutBulletPoint";
 

@@ -1,6 +1,6 @@
-import {TechStack} from "@/assets/tech-stack";
-import useAnimateIntoView from "@/hooks/useAnimateIntoView";
 import {useRef} from "react";
+import {TechStack} from "@/assets";
+import {useAnimateIntoView} from "@/hooks";
 
 const DELAYS = [700, 350, 0, 350, 700];
 

@@ -1,7 +1,7 @@
 "use client";
-import {LINKS} from "@/assets/links";
-import {renderIcon} from "@/utils/renderIcon";
-import {Tooltip} from "../Tooltip";
+import {LINKS} from "@/assets";
+import {renderIcon} from "@/utils";
+import {Tooltip} from "@/ui";
 
 export function Footer() {
     return (

@@ -1,4 +1,4 @@
-import {PROJECTS} from "@/assets/projects";
+import {PROJECTS} from "@/assets";
 import {ProjectCard} from "./ProjectCard";
 
 export function ProjectCards({

@@ -1,6 +1,6 @@
-import {useHasReducedMotion} from "@/hooks/useHasReducedMotion";
 import {useEffect, useState} from "react";
 import {twMerge} from "tailwind-merge";
+import {useHasReducedMotion} from "@/hooks";
 
 const HEADER_TEXT = "Hi, Albin here.";
 const TYPING_SPEED = 80;

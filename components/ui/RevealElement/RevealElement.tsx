@@ -1,4 +1,4 @@
-import {useHasReducedMotion} from "@/hooks/useHasReducedMotion";
+import {useHasReducedMotion} from "@/hooks";
 import {useEffect, useState} from "react";
 import {twMerge} from "tailwind-merge";
 

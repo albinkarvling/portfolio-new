@@ -1,1 +1,0 @@
-export {SelectableTabs} from "./SelectableTabs";

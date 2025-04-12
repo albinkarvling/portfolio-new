@@ -1,5 +1,5 @@
 import {RefObject, useCallback, useEffect, useState} from "react";
-import {useHasReducedMotion} from "./useHasReducedMotion";
+import {useHasReducedMotion} from "@/hooks";
 
 const DEFAULT_INITIAL_STATE: {
     opacity: number;
@@ -11,7 +11,7 @@ const DEFAULT_INITIAL_STATE: {
 const DEFAULT_DELAY = 0;
 const DEFAULT_DURATION = 600;
 const DEFAULT_THRESHOLD = 0.7;
-export default function useAnimateIntoView(
+export function useAnimateIntoView(
     ref: RefObject<HTMLElement | null>,
     {
         delay = DEFAULT_DELAY,

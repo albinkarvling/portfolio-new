@@ -1,8 +1,7 @@
 import Image from "next/image";
 import {useRef} from "react";
 import {AboutSection} from "@/assets";
-import useAnimateIntoView from "@/hooks/useAnimateIntoView";
-import {useDirectionalHover} from "@/hooks/useDirectionalHover";
+import {useAnimateIntoView, useDirectionalHover} from "@/hooks";
 
 export function AboutCard({
     card,

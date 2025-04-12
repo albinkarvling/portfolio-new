@@ -1,10 +1,9 @@
 "use client";
 import {useRef, useState} from "react";
-import {SelectableTabs} from "../SelectableTabs";
-import {type SelectableTab} from "../SelectableTabs/SelectableTabs";
-import useAnimateIntoView from "@/hooks/useAnimateIntoView";
-import {AboutActivePanel} from "./AboutActivePanel";
+import {useAnimateIntoView} from "@/hooks";
 import {ABOUT_SECTIONS, AboutTabId} from "@/assets";
+import {SelectableTabs, type SelectableTab} from "@/ui";
+import {AboutActivePanel} from "./AboutActivePanel";
 
 const ABOUT_TABS: SelectableTab<AboutTabId>[] = [
     {text: "Experience", id: "experience", ariaControls: "experience-panel"},

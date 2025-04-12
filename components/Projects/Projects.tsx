@@ -1,9 +1,9 @@
 "use client";
-import useAnimateIntoView from "@/hooks/useAnimateIntoView";
-import {ProjectCards} from "./ProjectCards";
-import {ProjectList} from "./ProjectList";
 import {useRef} from "react";
 import {twMerge} from "tailwind-merge";
+import {useAnimateIntoView} from "@/hooks";
+import {ProjectCards} from "./ProjectCards";
+import {ProjectList} from "./ProjectList";
 
 export function Projects() {
     const headerRef = useRef<HTMLHeadingElement>(null);

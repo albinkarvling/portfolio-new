@@ -1,7 +1,7 @@
 "use client";
-import {useHasReducedMotion} from "@/hooks/useHasReducedMotion";
 import React, {useEffect, useRef, forwardRef, useCallback} from "react";
 import {twMerge} from "tailwind-merge";
+import {useHasReducedMotion} from "@/hooks";
 
 const TILE_SIZE = 100;
 const BASE_RADIUS = 150;

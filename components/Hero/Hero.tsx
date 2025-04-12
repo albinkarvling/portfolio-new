@@ -1,12 +1,12 @@
 "use client";
+import {useRef} from "react";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import {scrollToSection} from "@/utils";
+import {useAnimateIntoView} from "@/hooks";
 import {HeroBackground} from "./HeroBackground";
 import {HeroLinks} from "./HeroLinks";
 import {HeroNavigation} from "./HeroNavigation";
-import {useRef} from "react";
-import useAnimateIntoView from "@/hooks/useAnimateIntoView";
 import {HeroTypingHeader} from "./HeroTypingHeader";
-import {scrollToSection} from "@/utils/scrollToSection";
 
 export function Hero() {
     const subHeaderRef = useRef<HTMLParagraphElement>(null);

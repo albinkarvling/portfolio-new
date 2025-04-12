@@ -1,13 +1,11 @@
-import {Project} from "@/assets/projects";
-import {Tooltip} from "../Tooltip";
-import {ProjectPreview} from "./ProjectPreview";
-import {renderIcon} from "@/utils/renderIcon";
-import {twMerge} from "tailwind-merge";
-import {Button} from "../Button";
-import {RevealElement} from "../RevealElement/RevealElement";
 import {createRef, useRef} from "react";
-import useAnimateIntoView from "@/hooks/useAnimateIntoView";
+import {twMerge} from "tailwind-merge";
 import {ArrowForward} from "@mui/icons-material";
+import {Project} from "@/assets";
+import {renderIcon} from "@/utils";
+import {useAnimateIntoView} from "@/hooks";
+import {RevealElement, Button, Tooltip} from "@/ui";
+import {ProjectPreview} from "./ProjectPreview";
 
 export function ProjectListItem({
     project,

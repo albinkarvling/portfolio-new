@@ -1,8 +1,9 @@
-import {useEffect, useState} from "react";
+import {useCallback, useEffect, useState} from "react";
 
-export type ScreenSize = "sm" | "md" | "lg" | "xl" | "2xl";
+const screenOrder = ["sm", "md", "lg", "xl", "2xl"] as const;
+export type ScreenSize = (typeof screenOrder)[number];
 
-export function useScreenSize(): ScreenSize {
+export function useScreenSize() {
     const [screenSize, setScreenSize] = useState<ScreenSize>("xl");
 
     useEffect(() => {
@@ -25,5 +26,19 @@ export function useScreenSize(): ScreenSize {
         return () => window.removeEventListener("resize", updateScreenSize);
     }, []);
 
-    return screenSize;
+    const down = useCallback(
+        (size: ScreenSize) => {
+            return screenOrder.indexOf(screenSize) <= screenOrder.indexOf(size);
+        },
+        [screenSize],
+    );
+
+    const up = useCallback(
+        (size: ScreenSize) => {
+            return screenOrder.indexOf(screenSize) >= screenOrder.indexOf(size);
+        },
+        [screenSize],
+    );
+
+    return {screenSize, up, down};
 }

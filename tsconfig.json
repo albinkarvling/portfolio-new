@@ -29,7 +29,10 @@
     "paths": {
       "@/*": [
         "./*"
-      ]
+      ],
+      "@/ui": [
+        "./components/ui"
+      ],
     }
   },
   "include": [

@@ -1,10 +1,10 @@
-import {Project} from "@/assets/projects";
-import {Close} from "@mui/icons-material";
-import {AnimatePresence, motion} from "framer-motion";
 import Image from "next/image";
 import {useRef, useState} from "react";
-import {RevealElement} from "../RevealElement/RevealElement";
-import {useScreenSize} from "@/hooks/useScreenSize";
+import {Close} from "@mui/icons-material";
+import {AnimatePresence, motion} from "framer-motion";
+import {useScreenSize} from "@/hooks";
+import {Project} from "@/assets";
+import {RevealElement} from "@/ui";
 
 const ANIMATION_DURATION = 700;
 export function ProjectPreview({
@@ -20,7 +20,7 @@ export function ProjectPreview({
     const contentRef = useRef<HTMLDivElement>(null);
     const initailDimensions = useRef({left: 0, top: 0, width: 0, height: 0});
 
-    const isSmallScreen = ["sm", "xs"].includes(screenSize);
+    const isSmallScreen = screenSize.down("sm");
 
     const showPreview = () => {
         if (!containerRef.current || !contentRef.current) return;

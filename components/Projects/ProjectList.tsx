@@ -1,5 +1,5 @@
 "use client";
-import {PROJECTS} from "@/assets/projects";
+import {PROJECTS} from "@/assets";
 import {ProjectListItem} from "./ProjectListItem";
 
 export function ProjectList() {

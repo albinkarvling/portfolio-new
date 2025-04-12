@@ -1,8 +1,8 @@
 "use client";
-import useAnimateIntoView from "@/hooks/useAnimateIntoView";
-import {scrollToSection} from "@/utils/scrollToSection";
 import {createRef, useEffect, useRef} from "react";
 import {twMerge} from "tailwind-merge";
+import {useAnimateIntoView} from "@/hooks";
+import {scrollToSection} from "@/utils";
 
 const NAVBAR_TABS = [
     {title: "About", id: "about-header"},

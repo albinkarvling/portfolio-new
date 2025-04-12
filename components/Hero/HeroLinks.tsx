@@ -1,10 +1,9 @@
 "use client";
-import {LinkBubble} from "@/assets";
-import {LINKS} from "@/assets/links";
-import useAnimateIntoView from "@/hooks/useAnimateIntoView";
-import {renderIcon} from "@/utils/renderIcon";
 import {createRef} from "react";
-import {Tooltip} from "../Tooltip";
+import {LinkBubble, LINKS} from "@/assets";
+import {useAnimateIntoView} from "@/hooks";
+import {renderIcon} from "@/utils";
+import {Tooltip} from "@/ui";
 
 export function HeroLinks() {
     const linkRefs = LINKS.map(() => createRef<HTMLLIElement>());

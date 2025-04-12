@@ -1,7 +1,7 @@
 "use client";
-import {TECH_STACK} from "@/assets/tech-stack";
-import {TechStackItem} from "./TechStackItem";
 import {useRef} from "react";
+import {TECH_STACK} from "@/assets";
+import {TechStackItem} from "./TechStackItem";
 
 const HEIGHTS = ["60%", "80%", "100%", "80%", "60%"];
 const getHeightForIndex = (index: number) => HEIGHTS[index % HEIGHTS.length];

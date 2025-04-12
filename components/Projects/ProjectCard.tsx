@@ -1,11 +1,9 @@
-import {Project} from "@/assets/projects";
 import {useRef} from "react";
 import {twMerge} from "tailwind-merge";
-import {Tooltip} from "../Tooltip";
-import useAnimateIntoView from "@/hooks/useAnimateIntoView";
-import {scrollToSection} from "@/utils/scrollToSection";
-import {renderIcon} from "@/utils/renderIcon";
-import {useDirectionalHover} from "@/hooks/useDirectionalHover";
+import {useAnimateIntoView, useDirectionalHover} from "@/hooks";
+import {renderIcon, scrollToSection} from "@/utils";
+import {Project} from "@/assets";
+import {Tooltip} from "@/ui";
 
 export function ProjectCard({
     className,

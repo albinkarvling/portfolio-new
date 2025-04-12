@@ -102,7 +102,6 @@ export function About() {
             </h2>
 
             <SelectableTabs
-                parentRef={headerRef}
                 tabs={ABOUT_TABS}
                 selectedTab={currentTab}
                 onSelect={handleTabChange}

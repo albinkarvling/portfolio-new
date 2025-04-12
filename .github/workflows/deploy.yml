@@ -6,6 +6,19 @@ on:
   workflow_dispatch: {}
 
 jobs:
+  lint:
+    name: Run eslint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      
+      - name: Run eslint
+        run: yarn eslint
+
   test:
     name: Run tests
     runs-on: ubuntu-latest

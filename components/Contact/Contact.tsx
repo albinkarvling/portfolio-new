@@ -64,6 +64,7 @@ export function Contact() {
     return (
         <section
             className="bg-background-secondary border-t-[1px] border-t-background-tertiary"
+            aria-labelledby="contact-header"
             id="contact-section"
             ref={containerRef}
         >
@@ -73,7 +74,7 @@ export function Contact() {
                 isVisible={isVisible}
                 color="quaternary"
             >
-                <h2 className="text-center text-4xl font-semibold">
+                <h2 id="contact-header" className="text-center text-4xl font-semibold">
                     Let&apos;s get in touch.
                 </h2>
                 <form

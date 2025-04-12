@@ -26,8 +26,8 @@ export function HeroTypingHeader() {
                 !hasReducedMotion &&
                     "after:absolute after:left-[calc(100%+12px)] after:h-full after:w-1 after:rounded-full after:bg-white after:animate-header-pulse",
             )}
+            aria-label={HEADER_TEXT}
         >
-            <span className="sr-only">{HEADER_TEXT}</span>
             {HEADER_TEXT.slice(0, letterCount)}
         </h1>
     );

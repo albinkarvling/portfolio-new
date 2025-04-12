@@ -8,7 +8,7 @@ export function Footer() {
         <footer className="py-8 bg-background-tertiary">
             <div className="main-width flex items-center justify-between">
                 <nav>
-                    <ul className="flex gap-6">
+                    <ul className="flex gap-6" aria-label="My links">
                         {LINKS.map((link) => (
                             <li key={link.text}>
                                 <Tooltip text={link.text} color="quaternary">

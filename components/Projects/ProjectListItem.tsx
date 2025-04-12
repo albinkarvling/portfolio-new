@@ -53,6 +53,7 @@ export function ProjectListItem({
                 className,
             )}
             id={`project-${project.title}`}
+            aria-labelledby={`project-${project.title}-header`}
         >
             {!isRevered && <ProjectPreview project={project} isVisible={isVisible} />}
             <div className="relative md:w-[500px] grid" ref={containerRef}>
@@ -60,7 +61,12 @@ export function ProjectListItem({
                     {String(index + 1).padStart(2, "0")}
                 </span>
                 <RevealElement isVisible={isVisible}>
-                    <span className="text-4xl font-semibold">{project.title}</span>
+                    <span
+                        className="text-4xl font-semibold"
+                        id={`project-${project.title}-header`}
+                    >
+                        {project.title}
+                    </span>
                 </RevealElement>
                 <span
                     className="block mt-3 text-text-secondary"

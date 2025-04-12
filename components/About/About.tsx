@@ -24,8 +24,17 @@ export function About() {
     });
 
     return (
-        <section className="py-28 w-main max-w-main mx-auto" id="about-section">
-            <h2 style={initialState} className="text-5xl font-semibold" ref={headerRef}>
+        <section
+            id="about-section"
+            aria-labelledby="about-header"
+            className="py-28 w-main max-w-main mx-auto"
+        >
+            <h2
+                id="about-header"
+                style={initialState}
+                className="text-5xl font-semibold"
+                ref={headerRef}
+            >
                 About my journey
             </h2>
 

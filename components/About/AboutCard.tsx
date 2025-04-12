@@ -1,27 +1,34 @@
 import Image from "next/image";
-import {AboutPanel} from "./About";
 import {useRef} from "react";
+import {AboutSection} from "@/assets";
 import useAnimateIntoView from "@/hooks/useAnimateIntoView";
+import {useDirectionalHover} from "@/hooks/useDirectionalHover";
 
 export function AboutCard({
     card,
     delay,
     siblingRef,
 }: {
-    card: AboutPanel["cards"][number];
+    card: AboutSection["cards"][number];
     delay: number;
     siblingRef: React.RefObject<HTMLElement | null>;
 }) {
     const ref = useRef<HTMLDivElement>(null);
 
     const {initialState} = useAnimateIntoView(ref, {delay, siblingRef});
+    const {handleMouseEnter, handleMouseLeave, refCallback} = useDirectionalHover();
 
     return (
         <div
-            className="relative h-full flex flex-col p-4 font-medium text-sm bg-background-secondary hover:bg-background-tertiary transition-colors rounded-md"
+            className="relative h-full flex flex-col p-4 font-medium text-sm bg-background-secondary rounded-md overflow-hidden"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
             style={initialState}
             ref={ref}
         >
+            {/* hover effect */}
+            <div className="absolute inset-0 bg-background-tertiary" ref={refCallback} />
+
             <div className="flex gap-3 relative">
                 <Image
                     width={44}
@@ -38,7 +45,7 @@ export function AboutCard({
                     <span className="text-xs text-text-secondary">{card.subTitle}</span>
                 </div>
             </div>
-            <ul className="pl-4 mt-4 pt-2 border-t-[1px] border-t-background-tertiary list-disc">
+            <ul className="relative pl-4 mt-4 pt-2 border-t-[1px] border-t-background-tertiary list-disc">
                 {card.description.map((description) => (
                     <li
                         className="first-of-type:mt-0 mt-2 text-text-secondary"

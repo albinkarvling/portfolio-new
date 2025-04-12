@@ -14,7 +14,7 @@ export function HeroLinks() {
     useAnimateIntoView(linkRefs[2], {delay: 1250});
 
     return (
-        <ul className="mt-8 flex gap-8">
+        <ul className="mt-8 flex gap-8" aria-label="My links">
             {LINKS.map(({text, url}, index) => (
                 <li
                     style={initialState}

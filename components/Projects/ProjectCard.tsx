@@ -45,7 +45,7 @@ export function ProjectCard({
 
             <div className="flex justify-between">
                 <span className="text-2xl font-semibold">{project.title}</span>
-                <ul className="flex items-center gap-3">
+                <ul className="flex items-center gap-3" aria-label="Project links">
                     {project.links.map((link) => (
                         <li key={link.title}>
                             <Tooltip className="relative z-10" text={link.title}>
@@ -65,7 +65,7 @@ export function ProjectCard({
             </div>
             <span className="text-text-secondary">{project.description}</span>
             <div className="flex-grow flex justify-between items-end gap-y-2 flex-wrap mt-3">
-                <ul className="flex">
+                <ul className="flex" aria-label="Technologies used">
                     {project.tech.map((techItem) => (
                         <li
                             className="py-1 px-2 mr-2 text-sm bg-background-secondary/60 rounded-md"
@@ -75,7 +75,12 @@ export function ProjectCard({
                         </li>
                     ))}
                 </ul>
-                <span className="text-text-secondary">{project.date}</span>
+                <span
+                    className="text-text-secondary"
+                    aria-label={`Created ${project.date}`}
+                >
+                    {project.date}
+                </span>
             </div>
 
             <button

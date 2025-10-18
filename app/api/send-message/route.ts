@@ -13,7 +13,7 @@ const sendMail = async ({
     message: string;
 }) => {
     const {error} = await resend.emails.send({
-        from: `${name} <notification@poxen.dev>`,
+        from: `${name} <notification@albinkarvling.com>`,
         to: `albin.karvling@hotmail.com`,
         subject: "New message from portfolio",
         text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,

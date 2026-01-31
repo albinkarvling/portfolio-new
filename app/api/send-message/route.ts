@@ -1,7 +1,19 @@
 import {NextResponse} from "next/server";
 import {Resend} from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+export const runtime = "nodejs";
+
+let resend: Resend | undefined;
+
+function getResend() {
+    if (resend) return resend;
+
+    const key = process.env.RESEND_API_KEY;
+    if (!key) throw new Error("RESEND_API_KEY is missing");
+
+    resend = new Resend(key);
+    return resend;
+}
 
 const sendMail = async ({
     name,
@@ -12,7 +24,7 @@ const sendMail = async ({
     email: string;
     message: string;
 }) => {
-    const {error} = await resend.emails.send({
+    const {error} = await getResend().emails.send({
         from: `${name} <notification@albinkarvling.com>`,
         to: `albin.karvling@hotmail.com`,
         subject: "New message from portfolio",

@@ -1,11 +1,11 @@
 {
     "about-me": {
-        "text": "My name is Albin Kärvling. I have been coding since I was 12, and am currently 20 years old. I am a full stack developer specializing in frontend development, but have knowledge of both backend and cloud solutions. In 2023, I graduated high school specializing in natural sciences, though programming has always been my true calling.",
+        "text": "My name is Albin Kärvling. I have been coding since I was 12, and am currently 21 years old. I am a full stack developer specializing in frontend development, but have knowledge of both backend and cloud solutions. In 2023, I graduated high school specializing in natural sciences, though programming has always been my true calling.",
         "bulletPoints": [
             "Full stack developer",
             "Specializing in frontend",
             "Started when I was 12",
-            "20 years old"
+            "21 years old"
         ],
         "cards": []
     },

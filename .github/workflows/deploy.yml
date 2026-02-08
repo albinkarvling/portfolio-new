@@ -65,4 +65,4 @@ jobs:
             --platform=managed \
             --region=${{ secrets.GCP_REGION }} \
             --allow-unauthenticated \
-            --set-env-vars RESEND_API_KEY=${{ secrets.RESEND_API_KEY }}
+            --set-env-vars RESEND_API_KEY_V2=${{ secrets.RESEND_API_KEY_V2 }}

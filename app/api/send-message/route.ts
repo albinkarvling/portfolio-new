@@ -8,8 +8,8 @@ let resend: Resend | undefined;
 function getResend() {
     if (resend) return resend;
 
-    const key = process.env.RESEND_API_KEY;
-    if (!key) throw new Error("RESEND_API_KEY is missing");
+    const key = process.env.RESEND_API_KEY_V2;
+    if (!key) throw new Error("RESEND_API_KEY_V2 is missing");
 
     resend = new Resend(key);
     return resend;

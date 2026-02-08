@@ -57,7 +57,7 @@ jobs:
             -t ${{ secrets.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/portfolio/portfolio:latest \
             --push .
 
-      - name: Deploy to Cloud Run (inject RESEND_API_KEY from Secret Manager)
+      - name: Deploy to Cloud Run
         run: |
           gcloud run deploy portfolio \
             --project=${{ secrets.GCP_PROJECT_ID }} \
@@ -65,5 +65,4 @@ jobs:
             --platform=managed \
             --region=${{ secrets.GCP_REGION }} \
             --allow-unauthenticated \
-            --service-account=cloudrun-portfolio@${{ secrets.GCP_PROJECT_ID }}.iam.gserviceaccount.com \
-            --set-secrets=RESEND_API_KEY=RESEND_API_KEY:latest
+            --set-env-vars RESEND_API_KEY=${{ secrets.RESEND_API_KEY }}

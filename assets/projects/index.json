@@ -36,13 +36,11 @@
             {
                 "title": "GitHub",
                 "url": "https://github.com/albinkarvling/statify"
-            },
-            {
-                "title": "Website",
-                "url": "https://statify.albinkarvling.com"
             }
         ],
-        "tech": ["Next.js", "Redux", "REST API"]
+        "tech": ["Next.js", "Redux", "REST API"],
+        "isArchived": true,
+        "archivedTooltip": "Spotify updated their developer integration. Consequently, this project is no longer functional and has no live version available."
     },
     {
         "title": "Medito",

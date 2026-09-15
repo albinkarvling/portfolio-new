@@ -37,9 +37,7 @@ export function Hero() {
                             style={initialState}
                             ref={textRef}
                         >
-                            I am a full stack developer, with experience in frontend,
-                            backend & cloud technologies. I specialize in frontend,
-                            though.
+                            I’m a frontend developer and project lead with experience across frontend architecture, Node.js BFFs and cloud infrastructure.
                         </p>
                     </div>
                     <HeroLinks />

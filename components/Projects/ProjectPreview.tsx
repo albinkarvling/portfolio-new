@@ -84,7 +84,7 @@ export function ProjectPreview({
 
         setPreviewVisible(false);
     };
-
+    const projectLink = project.links.find((link) => link.title === "Website");
     return (
         <RevealElement className="w-full md:w-[472px] aspect-video" isVisible={isVisible}>
             <div ref={containerRef}>
@@ -104,7 +104,7 @@ export function ProjectPreview({
                     ref={contentRef}
                 >
                     <AnimatePresence>
-                        {!previewVisbile && (
+                        {!previewVisbile && projectLink ? (
                             <motion.button
                                 aria-label={`Preview ${project.title}`}
                                 initial={{opacity: 1}}
@@ -121,6 +121,14 @@ export function ProjectPreview({
                                     alt=""
                                 />
                             </motion.button>
+                        ) : (
+                            <Image
+                                className="w-full h-full object-cover"
+                                src={project.image}
+                                width={472}
+                                height={264}
+                                alt=""
+                            />
                         )}
                     </AnimatePresence>
                     <AnimatePresence>
@@ -130,7 +138,7 @@ export function ProjectPreview({
                                 animate={{opacity: 1}}
                                 exit={{opacity: 0}}
                                 className="absolute inset-0 w-full h-full"
-                                src={project.links[2].url}
+                                src={projectLink?.url}
                             />
                         )}
                     </AnimatePresence>

@@ -42,7 +42,14 @@ export function ProjectCard({
             />
 
             <div className="flex justify-between">
-                <span className="text-2xl font-semibold">{project.title}</span>
+                <div className="flex items-center gap-3">
+                    <span className="text-2xl font-semibold">{project.title}</span>
+                    {project.isArchived && (
+                        <Tooltip className="relative z-10 cursor-default" text={project.archivedTooltip}>
+                            <span className="px-2 py-1.5 text-xs bg-background-secondary rounded-md">(Archived)</span>
+                        </Tooltip>
+                    )}
+                </div>
                 <ul className="flex items-center gap-3" aria-label="Project links">
                     {project.links.map((link) => (
                         <li key={link.title}>

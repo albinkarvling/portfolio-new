@@ -1,11 +1,11 @@
 {
     "about-me": {
-        "text": "My name is Albin Kärvling. I have been coding since I was 12, and am currently 21 years old. I am a full stack developer specializing in frontend development, but have knowledge of both backend and cloud solutions. In 2023, I graduated high school specializing in natural sciences, though programming has always been my true calling.",
+        "text": "My name is Albin Kärvling. I’m a frontend developer and project lead at ATG, working across frontend architecture, Node.js GraphQL BFFs and cloud infrastructure. I started programming at 12 and enjoy turning complex systems into accessible, reliable user experiences.",
         "bulletPoints": [
-            "Full stack developer",
-            "Specializing in frontend",
-            "Started when I was 12",
-            "21 years old"
+            "Frontend developer",
+            "Project lead",
+            "Frontend & BFF architecture",
+            "Started when I was 12"
         ],
         "cards": []
     },
@@ -14,12 +14,12 @@
         "bulletPoints": [],
         "cards": [
             {
-                "title": "ATG - Frontend",
-                "subTitle": "Sweden's second largest casino",
+                "title": "Frontend Developer & Project Lead",
+                "subTitle": "Swedish horse racing and gaming company",
                 "description": [
-                    "Working in the forefront of payment, anti money laundering and customer knowledge.",
-                    "Agile work methods with a focus on collaboration and communication.",
-                    "Working as the lead for our accessibility initiative."
+                    "Leading frontend development for an internal customer-service platform spanning multiple teams.",
+                    "Responsible for its React and TypeScript frontend and Node.js GraphQL BFF architecture.",
+                    "Building business-critical functionality across payments, responsible gambling, AML and customer accounts."
                 ],
                 "site": "https://atg.se",
                 "image": "/images/atg.png",
@@ -27,23 +27,22 @@
             },
             {
                 "title": "Rythm - Frontend",
-                "subTitle": "Largest discord bot",
+                "subTitle": "Discord music bot",
                 "description": [
-                    "Developed the dashboard for the largest discord bot with over 20 million users.",
-                    "Worked closely with backenders and designers to create a seamless experience.",
-                    "Frequent meetings to discuss progress."
+                    "Contributed features to the dashboard of Discord’s largest bot",
+                    "Worked with backend developers and designers to turn ideas and designs into working features."
                 ],
                 "site": "https://rythm.fm",
                 "image": "/images/rythm.png",
                 "date": "Apr 2021 - Aug 2021"
             },
             {
-                "title": "Fullstack developer",
-                "subTitle": "Self-taught",
+                "title": "Self-taught developer",
+                "subTitle": "Personal development",
                 "description": [
-                    "My curiosity for programming stared when I was 12 years old.",
-                    "Started with frontend, but have gotten into backend and cloud services.",
-                    "Love exploring new technologies and frameworks."
+                    "Started programming at 12, initially focusing on frontend development.",
+                    "Eventually wandered into backend development, cloud infrastructure and architecture.",
+                    "Still building things whenever an idea seems interesting enough."
                 ],
                 "site": "https://albinkarvling.com",
                 "image": "/images/portfolio.png",

@@ -1,6 +1,6 @@
 import {createRef, useRef} from "react";
 import {twMerge} from "tailwind-merge";
-import {ArrowForward} from "@mui/icons-material";
+import {ArrowForward, ErrorOutlineOutlined} from "@mui/icons-material";
 import {Project} from "@/assets";
 import {renderIcon} from "@/utils";
 import {useAnimateIntoView} from "@/hooks";
@@ -18,6 +18,7 @@ export function ProjectListItem({
 }) {
     const containerRef = useRef<HTMLDivElement>(null);
     const descriptionRef = useRef<HTMLDivElement>(null);
+    const arcivedRef = useRef<HTMLSpanElement>(null);
     const buttonRef = useRef<HTMLButtonElement>(null);
     const linkRefs = Array.from({length: 2}).map(() => createRef<HTMLAnchorElement>());
 
@@ -26,6 +27,10 @@ export function ProjectListItem({
     });
     const {initialState} = useAnimateIntoView(descriptionRef, {
         delay: 500,
+        siblingRef: containerRef,
+    });
+    useAnimateIntoView(arcivedRef, {
+        delay: 600,
         siblingRef: containerRef,
     });
     useAnimateIntoView(buttonRef, {
@@ -43,6 +48,7 @@ export function ProjectListItem({
 
     const isRevered = index % 2 === 0;
 
+    const websiteLink = project.links.find((link) => link.title === "Website");
     return (
         <div
             className={twMerge(
@@ -71,15 +77,27 @@ export function ProjectListItem({
                 >
                     {project.longDescription}
                 </span>
-                <div className="mt-5 flex gap-5">
-                    <Button
-                        href={project.links[2].url}
-                        icon={<ArrowForward fontSize="small" />}
+                {project.isArchived && project.archivedTooltip && (
+                    <span
                         style={initialState}
-                        ref={buttonRef}
+                        className="mt-2 px-2 py-1.5 text-xs bg-background-secondary rounded-md"
+                        ref={arcivedRef}
                     >
-                        Visit site
-                    </Button>
+                        <ErrorOutlineOutlined sx={{fontSize: ".875rem", mr: ".25rem"}} />
+                        {project.archivedTooltip}
+                    </span>
+                )}
+                <div className="mt-5 flex gap-5">
+                    {websiteLink && (
+                        <Button
+                            href={websiteLink?.url}
+                            icon={<ArrowForward fontSize="small" />}
+                            style={initialState}
+                            ref={buttonRef}
+                        >
+                            Visit site
+                        </Button>
+                    )}
                     <ul className="flex items-center gap-5">
                         {project.links
                             .filter((link) => link.title !== "Website")

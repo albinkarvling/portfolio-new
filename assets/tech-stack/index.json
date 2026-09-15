@@ -1,8 +1,9 @@
 [
     {
         "title": "HTML",
-        "description": "Not much pure HTML nowadays, but the semantic structure is there.",
-        "addons": ["JSX", "SEO", "Accessibility"]
+        "description":
+            "JSX most days, but semantic HTML is always the foundation.",
+        "addons": ["SEO", "Accessibility"]
     },
     {
         "title": "CSS",
@@ -11,28 +12,35 @@
         "addons": ["SCSS", "Tailwind", "Styled Components", "Emotion"]
     },
     {
-        "title": "JavaScript",
-        "description": "The language I started with, and have had by my side since.",
+        "title": "TypeScript & JavaScript",
+        "description":
+            "JavaScript was where I started; TypeScript is where I spend most of my time now.",
         "addons": [
-            "TypeScript",
             "React.js",
             "Next.js",
             "Redux",
+            "TanStack Query",
             "Jest",
-            "Hooks",
+            "Playwright",
             "React Native"
         ]
     },
     {
         "title": "Node.js",
         "description":
-            "I have explored Python for backend, but Node.js has been my go-to lately.",
-        "addons": ["Express.js", "MySQL", "Prisma", "GraphQL"]
+            "My go-to for APIs, BFFs and everything that needs to sit between a UI and its services.",
+        "addons": ["GraphQL", "REST", "Express.js", "MySQL", "Prisma"]
     },
     {
         "title": "The Cloud",
         "description":
-            "I enjoy making applications autonomous using Google’s cloud services.",
-        "addons": ["Google Cloud", "GitHub Actions", "Docker"]
+            "I like making applications easy to build, deploy and keep running.",
+        "addons": [
+            "AWS",
+            "Google Cloud",
+            "Docker",
+            "GitHub Actions",
+            "CI/CD"
+        ]
     }
 ]

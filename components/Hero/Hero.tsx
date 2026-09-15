@@ -19,7 +19,7 @@ export function Hero() {
         <section className="relative w-full lg:h-[100dvh]" id="hero-section">
             <HeroBackground />
 
-            <h1 className="sr-only">Albin Kärvling – A fullstack Developer</h1>
+            <h1 className="sr-only">Albin Kärvling – Frontend Developer & Project Lead</h1>
 
             <div className="h-full pt-24 lg:pt-0 flex flex-col lg:justify-center">
                 <div className="w-main max-w-main mx-auto flex flex-col items-center lg:items-start">

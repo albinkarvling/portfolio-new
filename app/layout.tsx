@@ -11,7 +11,7 @@ const url = "https://albinkarvling.com";
 const name = "Albin Kärvling";
 const title = name;
 const description =
-    "A personal portfolio showcasing my projects, skills, and experience as a fullstack developer, who specializes in frontend development.";
+    "Frontend developer and project lead experienced in React, TypeScript, Node.js GraphQL BFFs, accessibility and cloud infrastructure.";
 
 export const metadata: Metadata = {
     title,

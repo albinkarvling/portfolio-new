@@ -51,10 +51,8 @@ export function useAnimateIntoView(
     }, [getVisible, siblingRef]);
 
     useEffect(() => {
-        if (!ref?.current) {
-            console.warn("useAnimateIntoView: ref is not defined");
-            return;
-        }
+        if (!ref?.current) return;
+        
         if (preferesNoMotion) {
             console.log("useAnimateIntoView: prefers-reduced-motion");
             ref.current.style.transition = "";

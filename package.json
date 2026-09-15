@@ -1,6 +1,7 @@
 {
   "name": "portfolio",
   "version": "0.1.0",
+  "packageManager": "yarn@1.22.22",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
